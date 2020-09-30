@@ -1,7 +1,7 @@
 const data = [
   {
     url: "https://storage.googleapis.com/apt-videos/apt.mp4",
-    channel: "sssanga",
+    channel: "ppp[anga",
     apt: "this apt is awesome",
     likes: "2020",
     messages: "66",
