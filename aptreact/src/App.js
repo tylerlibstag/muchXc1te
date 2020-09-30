@@ -1,7 +1,7 @@
 import axios from "./axios";
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Video from "./Video";
+import Video from "./components/Newsfeed/Video";
 
 function App() {
   const [videos, setVideos] = useState([]);
