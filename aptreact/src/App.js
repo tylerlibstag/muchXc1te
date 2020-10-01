@@ -1,43 +1,31 @@
-import axios from "./axios";
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import Video from "./components/Newsfeed/Video";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Landing from "./pages/Landing";
+import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
+import Newsfeed from "./pages/Newsfeed";
+import Search from "./pages/Search";
+import LookerProfile from "./pages/LookerProfile";
+import ListerProfile from "./pages/ListerProfile";
+import NoMatch from "./pages/NoMatch";
 
 function App() {
-  const [videos, setVideos] = useState([]);
-
-  useEffect(() => {
-    async function fetchPosts() {
-      const response = await axios.get("/v2/posts");
-      setVideos(response.data);
-
-      return response;
-    }
-
-    fetchPosts();
-  }, []);
-  console.log(videos);
-
   return (
-    //BEM naming convention
-    <div className="app">
-      <h1>Real Estate Video Site test</h1>
-      <div className="app_videos">
-        {videos.map(
-          ({ url, channel, description, apt, likes, messages, shares }) => (
-            <Video
-              url={url}
-              channel={channel}
-              description={description}
-              apt={apt}
-              likes={likes}
-              messages={messages}
-              shares={shares}
-            />
-          )
-        )}
+    <Router>
+      <div>
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/Landing" component={Landing} />
+            <Route exact path="/SignUp" component={SignUp} />
+            <Route exact path="/Login" component={Login} />
+            <Route exact path="/Newsfeed" component={Newsfeed} />
+            <Route exact path="/Search" component={Search} />
+            <Route exact path="/LookerProfile" component={LookerProfile} />
+            <Route exact path="/ListerProfile" component={ListerProfile} />
+            <Route component={NoMatch} />
+          </Switch>
       </div>
-    </div>
+    </Router>
   );
 }
 

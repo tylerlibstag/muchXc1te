@@ -2,7 +2,7 @@ html {
   scroll-snap-type: y mandatory;
 }
 
-.app {
+.main {
   height: 100vh;
   background-color: black;
   display: grid;
@@ -10,7 +10,7 @@ html {
   color: white;
 }
 
-.app_videos {
+.main_videos {
   position: relative;
   height: 800px;
   border-radius: 20px;
@@ -20,10 +20,10 @@ html {
   overflow: scroll;
 }
 
-.app_videos::-webkit-scrollbar {
+.main_videos::-webkit-scrollbar {
   display: none;
 }
-.app_videos {
+.main_videos {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
