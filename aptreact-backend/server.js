@@ -1,22 +1,21 @@
-import { createRequire } from 'module';
+import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 import express from "express";
 import mongoose from "mongoose";
 import Multer from "multer";
 
+//const config = require("./aptreactstorage-52385ce6c45e.json");
+const { format } = require("util");
+const bodyParser = require("body-parser");
 
+const { Storage } = require("@google-cloud/storage");
 
-const config = require("./aptreactstorage-52385ce6c45e.json");
-const {format} = require("util");
-const bodyParser = require('body-parser');
-
-const {Storage} = require("@google-cloud/storage");
-
-//instanstiate storage client 
-const storage = new Storage();
+//instanstiate storage client
+const storage = new Storage({
+  keyFilename: "./aptreactstorage-52385ce6c45e.json",
+});
 
 const port = process.env.PORT || 9000;
-
 
 //database stuff
 import Data from "./data.js";
@@ -25,8 +24,8 @@ import Videos from "./dbModel.js";
 // app config
 const app = express();
 
-//multer things 
-app.set('view engine', 'pug');
+//multer things
+app.set("view engine", "pug");
 app.use(bodyParser.json());
 
 const multer = Multer({
@@ -38,19 +37,15 @@ const multer = Multer({
 
 const bucket = storage.bucket("apt-videos");
 
-app.get('/', (req, res) => {
-  res.render('form.pug');
+app.get("/", (req, res) => {
+  res.render("form.pug");
 });
 
+// middleware
 
-
-
-
-// middlewards
-
-app.post('/upload', multer.single('file'), (req, res, next) => {
+app.post("/upload", multer.single("file"), (req, res, next) => {
   if (!req.file) {
-    res.status(400).send('No file uploaded.');
+    res.status(400).send("No file uploaded.");
     return;
   }
 
@@ -58,11 +53,11 @@ app.post('/upload', multer.single('file'), (req, res, next) => {
   const blob = bucket.file(req.file.originalname);
   const blobStream = blob.createWriteStream();
 
-  blobStream.on('error', (err) => {
+  blobStream.on("error", (err) => {
     next(err);
   });
 
-  blobStream.on('finish', () => {
+  blobStream.on("finish", () => {
     // The public URL can be used to directly access the file via HTTP.
     const publicUrl = format(
       `https://storage.googleapis.com/${bucket.name}/${blob.name}`
@@ -72,7 +67,6 @@ app.post('/upload', multer.single('file'), (req, res, next) => {
 
   blobStream.end(req.file.buffer);
 });
-
 
 app.use(express.json());
 
@@ -125,8 +119,6 @@ app.post("/v2/posts", (req, res) => {
     }
   });
 });
-
-
 
 // listen
 app.listen(port, () => console.log(`listening on localhost: ${port}`));
