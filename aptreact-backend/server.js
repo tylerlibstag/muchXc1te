@@ -3,6 +3,8 @@ const require = createRequire(import.meta.url);
 import express from "express";
 import mongoose from "mongoose";
 import Multer from "multer";
+var publicUrl = "";
+const filter = { url: publicUrl };
 
 //const config = require("./aptreactstorage-52385ce6c45e.json");
 const { format } = require("util");
@@ -59,10 +61,23 @@ app.post("/upload", multer.single("file"), (req, res, next) => {
 
   blobStream.on("finish", () => {
     // The public URL can be used to directly access the file via HTTP.
-    const publicUrl = format(
+    publicUrl = format(
       `https://storage.googleapis.com/${bucket.name}/${blob.name}`
     );
     res.status(200).send(publicUrl);
+
+    // This is
+    Videos.findOneAndUpdate(
+      { channel: "sssanga" },
+      { url: publicUrl },
+      function (err, result) {
+        if (err) {
+          res.send(err);
+        } else {
+          res.send(result);
+        }
+      }
+    );
   });
 
   blobStream.end(req.file.buffer);
@@ -109,7 +124,10 @@ app.get("/v2/posts", (req, res) => {
 app.post("/v2/posts", (req, res) => {
   // POST request is the add data to the database
   // it will let us add a video document to the videos collection
+
   const dbVideos = req.body;
+
+  //publicUrl.findOneAndUpdate(dbVideos);
 
   Videos.create(dbVideos, (err, data) => {
     if (err) {
@@ -117,7 +135,7 @@ app.post("/v2/posts", (req, res) => {
     } else {
       res.status(201).send(data);
     }
-  });
+  }).then(Videos.findOneAndUpdate({}));
 });
 
 // listen
