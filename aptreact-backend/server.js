@@ -133,6 +133,7 @@ app.post("/v2/posts", (req, res) => {
   // it will let us add a video document to the videos collection
 
   const dbVideos = req.body;
+
   Videos.create(dbVideos, (err, data) => {
     if (err) {
       res.status(500).send(err);
