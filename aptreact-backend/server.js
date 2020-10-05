@@ -127,15 +127,13 @@ app.post("/v2/posts", (req, res) => {
 
   const dbVideos = req.body;
 
-  //publicUrl.findOneAndUpdate(dbVideos);
-
   Videos.create(dbVideos, (err, data) => {
     if (err) {
       res.status(500).send(err);
     } else {
       res.status(201).send(data);
     }
-  }).then(Videos.findOneAndUpdate({}));
+  });
 });
 
 // listen
