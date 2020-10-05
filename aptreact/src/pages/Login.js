@@ -7,6 +7,9 @@ function Login() {
         <div>
             
         </div>
+        // To be coded:
+        // FORM for user to input their USERNAME and PASSWORD
+        // on SUBMIT the user will be ROUTED to the NEWSFEED
     )
 }
 

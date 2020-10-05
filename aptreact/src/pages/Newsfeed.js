@@ -10,6 +10,9 @@ function Newsfeed() {
             {/* The main video scroll feature */}
             <Main/>
         </div>
+
+        // Take inspiration from TIKTOK
+        // Another (right) side component could be added here as well
     )
 }
 

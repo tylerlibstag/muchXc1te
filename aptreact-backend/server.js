@@ -54,22 +54,27 @@ app.post("/upload", multer.single("file"), (req, res, next) => {
   // Create a new blob in the bucket and upload the file data.
   const blob = bucket.file(req.file.originalname);
   const blobStream = blob.createWriteStream();
-
+  
   blobStream.on("error", (err) => {
     next(err);
   });
-
+ 
   blobStream.on("finish", () => {
+ 
     // The public URL can be used to directly access the file via HTTP.
     publicUrl = format(
       `https://storage.googleapis.com/${bucket.name}/${blob.name}`
     );
-    res.status(200).send(publicUrl);
-
-    // This is
-    Videos.findOneAndUpdate(
-      { channel: "sssanga" },
-      { url: publicUrl },
+     res.send(publicUrl);
+     
+  
+    // This is creating the video while also updating the database 
+    Videos.create(
+      {  url: publicUrl,
+        channel: req.body.channel,
+        apt: req.body.apt,
+        description: req.body.description,
+         },
       function (err, result) {
         if (err) {
           res.send(err);
@@ -78,9 +83,10 @@ app.post("/upload", multer.single("file"), (req, res, next) => {
         }
       }
     );
-  });
+  }) 
+  blobStream.end(req.file.buffer); 
+ 
 
-  blobStream.end(req.file.buffer);
 });
 
 app.use(express.json());
@@ -121,6 +127,7 @@ app.get("/v2/posts", (req, res) => {
   });
 });
 
+//for testing database
 app.post("/v2/posts", (req, res) => {
   // POST request is the add data to the database
   // it will let us add a video document to the videos collection
