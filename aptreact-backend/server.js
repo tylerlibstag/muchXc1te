@@ -5,7 +5,7 @@ import express from "express";
 import mongoose from "mongoose";
 
 //auth dependencies
-import keys from "./config/keys.js"
+import keys from "./config/keys.js";
 import passport from "passport";
 import cors from "cors";
 import passportSetup from "./config/passport-setup.js";
@@ -42,8 +42,6 @@ const bucket = storage.bucket("apt-videos");
 const app = express();
 const port = process.env.PORT || 9000;
 
-
-
 //////////////// End Variables //////////////////////////////////
 
 // /////////////////  MIDDLEWARE //////////////////////////////////
@@ -54,8 +52,6 @@ app.use(cookieParser());
 app.use(passport.initialize());
 // deserialize cookie from the browser
 app.use(passport.session());
-
-
 
 ////////////// Config //////////////////////////////////////////
 //DB config
@@ -70,7 +66,7 @@ app.use(
   cookieSession({
     name: "session",
     keys: [keys.COOKIE_KEY],
-    maxAge: 24 * 60 * 60 * 1000 // session will expire after 24 hours
+    maxAge: 24 * 60 * 60 * 1000, // session will expire after 24 hours
   })
 );
 
@@ -85,8 +81,6 @@ const multer = Multer({
   // },
 });
 
-
-
 /////////////////// NODE CONFIG ////////////////////////////////
 //this code advises that when we get a request we'll send the headers below.
 app.use((req, res, next) => {
@@ -94,9 +88,6 @@ app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Headers", "*"),
     next();
 });
-
-
-
 
 ////////////////// ROUTES ////////////////////////////////
 
@@ -154,7 +145,7 @@ app.post("/v2/posts", (req, res) => {
     } else {
       res.status(201).send(data);
     }
-  }).then(Videos.findOneAndUpdate({}));
+  });
 });
 
 // DATABASE GET Routes ***********************************
@@ -169,7 +160,7 @@ app.get("/", (req, res) => {
 // local seed database route
 app.get("/v1/posts", (req, res) => res.status(200).send(Data));
 
-// mongoose test route. 
+// mongoose test route.
 app.get("/v2/posts", (req, res) => {
   // this is to get everything from the database.
 
@@ -182,14 +173,13 @@ app.get("/v2/posts", (req, res) => {
   });
 });
 
-
 // ********** AUTH ROUTES **********************************
 // set up cors to allow us to accept requests from our client
 app.use(
   cors({
     origin: "http://localhost:3000", // allow to server to accept request from different origin
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true // allow session cookie from browser to pass through
+    credentials: true, // allow session cookie from browser to pass through
   })
 );
 
@@ -208,13 +198,11 @@ app.get("/", authCheck, (req, res) => {
     authenticated: true,
     message: "user successfully authenticated",
     user: req.user,
-    cookies: req.cookies
+    cookies: req.cookies,
   });
 });
 
 // ********* end of Auth Routes *****************
-
-
 
 // listen
 app.listen(port, () => console.log(`listening on localhost: ${port}`));
