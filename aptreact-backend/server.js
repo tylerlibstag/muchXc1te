@@ -1,32 +1,80 @@
+// /////////////////////Dependency Imports ////////////////////////
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 import express from "express";
 import mongoose from "mongoose";
+
+//auth dependencies
+import keys from "./config/keys.js"
+import passport from "passport";
+import cors from "cors";
+import passportSetup from "./config/passport-setup.js";
+import session from "express-session";
+import authRoutes from "./routes/auth-routes.js";
+import cookieParser from "cookie-parser";
+
+//middleware to store session data on the client
+import cookieSession from "cookie-session";
+
+// Video Upload dependencies
 import Multer from "multer";
+const { format } = require("util");
+const bodyParser = require("body-parser");
+const { Storage } = require("@google-cloud/storage");
+
+//database dependencies
+import Data from "./seed/data.js";
+import Videos from "./models/dbModel.js";
+
+// /////////////////Variables /////////////////////////////////////
+
+// Variables for Database
 var publicUrl = "";
 const filter = { url: publicUrl };
 
-//const config = require("./aptreactstorage-52385ce6c45e.json");
-const { format } = require("util");
-const bodyParser = require("body-parser");
-
-const { Storage } = require("@google-cloud/storage");
-
-//instanstiate storage client
+//instantiate storage client
 const storage = new Storage({
   keyFilename: "./aptreactstorage-52385ce6c45e.json",
 });
+const bucket = storage.bucket("apt-videos");
 
+// app config variables
+const app = express();
 const port = process.env.PORT || 9000;
 
-//database stuff
-import Data from "./data.js";
-import Videos from "./dbModel.js";
 
-// app config
-const app = express();
 
-//multer things
+//////////////// End Variables //////////////////////////////////
+
+// /////////////////  MIDDLEWARE //////////////////////////////////
+app.use(express.json());
+// parse cookies
+app.use(cookieParser());
+// initialize passport
+app.use(passport.initialize());
+// deserialize cookie from the browser
+app.use(passport.session());
+
+
+
+////////////// Config //////////////////////////////////////////
+//DB config
+mongoose.connect(keys.MONGODB_URI, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+});
+
+// user session config
+app.use(
+  cookieSession({
+    name: "session",
+    keys: [keys.COOKIE_KEY],
+    maxAge: 24 * 60 * 60 * 1000 // session will expire after 24 hours
+  })
+);
+
+//multer config setup
 app.set("view engine", "pug");
 app.use(bodyParser.json());
 
@@ -37,14 +85,22 @@ const multer = Multer({
   // },
 });
 
-const bucket = storage.bucket("apt-videos");
 
-app.get("/", (req, res) => {
-  res.render("form.pug");
+
+/////////////////// NODE CONFIG ////////////////////////////////
+//this code advises that when we get a request we'll send the headers below.
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*"),
+    res.setHeader("Access-Control-Allow-Headers", "*"),
+    next();
 });
 
-// middleware
 
+
+
+////////////////// ROUTES ////////////////////////////////
+
+// **********  BEGINNING OF MULTER/GOOGLE POST ROUTE ********* //
 app.post("/upload", multer.single("file"), (req, res, next) => {
   if (!req.file) {
     res.status(400).send("No file uploaded.");
@@ -54,27 +110,22 @@ app.post("/upload", multer.single("file"), (req, res, next) => {
   // Create a new blob in the bucket and upload the file data.
   const blob = bucket.file(req.file.originalname);
   const blobStream = blob.createWriteStream();
-  
+
   blobStream.on("error", (err) => {
     next(err);
   });
- 
+
   blobStream.on("finish", () => {
- 
     // The public URL can be used to directly access the file via HTTP.
     publicUrl = format(
       `https://storage.googleapis.com/${bucket.name}/${blob.name}`
     );
-     res.send(publicUrl);
-     
-  
-    // This is creating the video while also updating the database 
-    Videos.create(
-      {  url: publicUrl,
-        channel: req.body.channel,
-        apt: req.body.apt,
-        description: req.body.description,
-         },
+    res.status(200).send(publicUrl);
+
+    // This is
+    Videos.findOneAndUpdate(
+      { channel: "sssanga" },
+      { url: publicUrl },
       function (err, result) {
         if (err) {
           res.send(err);
@@ -83,38 +134,42 @@ app.post("/upload", multer.single("file"), (req, res, next) => {
         }
       }
     );
-  }) 
-  blobStream.end(req.file.buffer); 
- 
+  });
 
+  blobStream.end(req.file.buffer);
 });
 
-app.use(express.json());
+/****************  BEGINNING OF DATABASE TEST POST ROUTE **********/
+app.post("/v2/posts", (req, res) => {
+  // POST request is the add data to the database
+  // it will let us add a video document to the videos collection
 
-//
+  const dbVideos = req.body;
 
-//what this is doing is that when we get a request we'll send the headers below.
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*"),
-    res.setHeader("Access-Control-Allow-Headers", "*"),
-    next();
+  //publicUrl.findOneAndUpdate(dbVideos);
+
+  Videos.create(dbVideos, (err, data) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(201).send(data);
+    }
+  }).then(Videos.findOneAndUpdate({}));
 });
 
-//DB config
+// DATABASE GET Routes ***********************************
+// old hello world route, main page entry point. //
+//app.get("/", (req, res) => res.status(200).send("hello world"));
 
-const connection_url =
-  "mongodb+srv://admin:iOmvDDZRoLyiWtkt@cluster0.uw0yk.gcp.mongodb.net/aptreact?retryWrites=true&w=majority";
-mongoose.connect(connection_url, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useUnifiedTopology: true,
+// Route to test form submissions
+app.get("/", (req, res) => {
+  res.render("form.pug");
 });
-// api endpoints
 
-app.get("/", (req, res) => res.status(200).send("hello world"));
-
+// local seed database route
 app.get("/v1/posts", (req, res) => res.status(200).send(Data));
 
+// mongoose test route. 
 app.get("/v2/posts", (req, res) => {
   // this is to get everything from the database.
 
@@ -127,21 +182,39 @@ app.get("/v2/posts", (req, res) => {
   });
 });
 
-//for testing database
-app.post("/v2/posts", (req, res) => {
-  // POST request is the add data to the database
-  // it will let us add a video document to the videos collection
 
-  const dbVideos = req.body;
+// ********** AUTH ROUTES **********************************
+// set up cors to allow us to accept requests from our client
+app.use(
+  cors({
+    origin: "http://localhost:3000", // allow to server to accept request from different origin
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true // allow session cookie from browser to pass through
+  })
+);
 
-  Videos.create(dbVideos, (err, data) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.status(201).send(data);
-    }
+// set up auth routes
+app.use("/auth", authRoutes);
+const authCheck = (req, res, next) => {
+  next();
+};
+
+// user auth sign-in on home page
+// if user is already logged in, send the profile response,
+// otherwise, send a 401 response that the user is not authenticated
+// authCheck before navigating to home page
+app.get("/", authCheck, (req, res) => {
+  res.status(200).json({
+    authenticated: true,
+    message: "user successfully authenticated",
+    user: req.user,
+    cookies: req.cookies
   });
 });
+
+// ********* end of Auth Routes *****************
+
+
 
 // listen
 app.listen(port, () => console.log(`listening on localhost: ${port}`));
