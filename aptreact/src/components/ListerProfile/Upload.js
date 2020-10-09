@@ -8,7 +8,7 @@ function Upload() {
 
         // To be Coded:
         // a FORM that allows the user to input the URL (prop = url), DESCRIPTION (prop = description), and the LOCATION (prop = apt)
-        // SUBMIT button that will send info to DB
+        // SUBMIT button that will send info to DB POST
     )
 }
 

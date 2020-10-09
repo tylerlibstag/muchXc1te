@@ -1,0 +1,25 @@
+/* GLOBAL STYLES */
+body {
+    letter-spacing: 2px;
+    font-weight: lighter !important;
+}
+
+h2 {
+    font-size: x-large !important;
+}
+
+h3 {
+    font-size: larger !important;
+}
+
+/* LOGIN STYLES */
+
+.LoginNav {
+    background-color: #2B89AD;
+    padding: 2%;
+}
+
+.LoginNav, a {
+    color: aliceblue;
+    padding-left: 2%;
+}
