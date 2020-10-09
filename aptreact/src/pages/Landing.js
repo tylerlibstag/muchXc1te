@@ -1,18 +1,22 @@
 import React from "react";
 import "../components/Landing/Landing.css";
+import LandingNav from "../components/Landing/LandingNav"
+import HeaderHero from "../components/Images/HeaderHero.png"
 
 function Landing () {
     return (
         <div>
-            {/* This is the nav bar for the Landing Page only */}
-            <div>
-                <a>Home</a>
-                <a>Sign Up</a>
-                <a>Login</a>
-            </div>
-            {/* This is where main body with graphics will go */}
-            <div>
-                <p>Main body temp text</p>
+            <LandingNav/>
+            <div className="container" id="Hero">
+                <div className="row">
+                    <div className="col-md-4 my-auto">
+                        <h2>Opening text here</h2>
+                        <h3>and the rest of the tag line here</h3>
+                    </div>
+                    <div className="col-md-8 text-center my-auto">
+                        <img src={HeaderHero} id="HeaderHero" alt="A skater, a dog walker in heels, and two phone users walking out of a large phone."/>
+                    </div>
+                </div>
             </div>
         </div>
     )

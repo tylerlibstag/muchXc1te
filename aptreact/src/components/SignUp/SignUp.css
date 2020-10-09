@@ -1,0 +1,39 @@
+/* GLOBAL STYLES */
+body {
+    letter-spacing: 2px;
+    font-weight: lighter !important;
+}
+
+h2 {
+    font-size: x-large !important;
+}
+
+h3 {
+    font-size: larger !important;
+}
+
+/* SIGNUP STYLES */
+
+.SignUpNav {
+    background-color: #2B89AD;
+    padding: 2%;
+}
+
+.SignUpNav, a {
+    color: aliceblue;
+    padding-left: 2%;
+}
+
+#Hero {
+    margin-top: 2%;
+}
+
+@media (max-width: 767px) {
+    #Hero {
+        margin-top: 15%;
+    }
+}
+
+#SignUpHero {
+    max-width: 100%;
+}

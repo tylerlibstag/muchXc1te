@@ -1,9 +1,14 @@
 import React from "react";
 import "../components/Search/Search.css";
+import SideNav from "../components/Newsfeed/SideNav"
 
 function Search() {
     return (
-        <div></div>
+        <div>
+            <div>
+                <SideNav/>
+            </div>
+        </div>
         //Search Bar capabilities:
         // FORM: with preselected NEIGHBORHOOD BUTTONS
 
