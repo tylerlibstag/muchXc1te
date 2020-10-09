@@ -7,6 +7,8 @@ function LandingNav() {
         <div>
             <nav className="LandingNav">
                 <a>Home</a>
+                <a>SignUp</a>
+                <a>Login</a>
             </nav>
         </div>
     )
