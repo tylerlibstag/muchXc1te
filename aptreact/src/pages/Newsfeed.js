@@ -1,14 +1,20 @@
 import React from "react";
+import "../components/Newsfeed/Newsfeed.css"
+import 'bootstrap/dist/css/bootstrap.css';
+import NewsfeedNav from "../components/Newsfeed/NewsfeedNav";
 import Main from "../components/Newsfeed/Main";
 import SideNav from "../components/Newsfeed/SideNav";
 
 function Newsfeed() {
     return (
         <div>
-            {/* The side bar navigation that will have buttons to LANDING, SEARCH, and PROFILE */}
-            <SideNav/>
-            {/* The main video scroll feature */}
-            <Main/>
+            <NewsfeedNav/>
+            <div>
+                <SideNav/>
+            </div>
+            <div>
+                <Main/>
+            </div>
         </div>
 
         // Take inspiration from TIKTOK

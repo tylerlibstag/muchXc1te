@@ -12,14 +12,14 @@ h3 {
     font-size: larger !important;
 }
 
-/* Lister STYLES */
+/* Newsfeed STYLES */
 
-.ListerNav {
+.NewsfeedNav {
     background-color: #2B89AD;
     padding: 2%;
 }
 
-.ListerNav, a {
+.NewsfeedNav, a {
     color: aliceblue;
     padding-left: 2%;
 }
