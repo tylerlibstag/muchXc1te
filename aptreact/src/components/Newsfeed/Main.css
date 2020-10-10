@@ -1,10 +1,16 @@
 html {
   scroll-snap-type: y mandatory;
 }
+.main {
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
 
 .main {
   height: 100vh;
-  background-color: black;
+  background-color: white;
   display: grid;
   place-items: center;
   color: white;

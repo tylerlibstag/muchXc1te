@@ -10,7 +10,7 @@ function ListerNav() {
                 <a>Logout</a>
             </nav>
         </div>
-    )
+    );
 }
 
 export default ListerNav;

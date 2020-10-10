@@ -5,20 +5,33 @@ import ListerNav from "../components/ListerProfile/ListerNav";
 import Lister from "../components/ListerProfile/Lister";
 import Upload from "../components/ListerProfile/Upload";
 import Manage from "../components/ListerProfile/Manage";
-import SideNav from "../components/Newsfeed/SideNav"
+import SideNav from "../components/Newsfeed/SideNav";
+import Button from "react-bootstrap/Button";
 
 function ListerProfile() {
+
+    function ButtonLink() {
+        function handleClick(e) {
+            e.preventDefault();
+            console.log("The link was clicked");
+        }
+
+    }
     return (
+
+
         // This is the main page to show components: LISTER to show the user their profile, UPLOAD for user to make posts, and MANAGE to update or delete an existing post
         <div>
-            <ListerNav/>
+            <ListerNav />
             <div>
-                <SideNav/>
+                <SideNav />
             </div>
             <div>
-                <Lister/>
-                <Upload/>
-                <Manage/>
+                <Lister />
+                <Button a href="/Upload" onclick={ButtonLink}>
+                    Upload a video via route.
+                </Button>
+                <Manage />
             </div>
         </div>
     )

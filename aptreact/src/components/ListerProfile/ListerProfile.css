@@ -1,7 +1,7 @@
 /* GLOBAL STYLES */
 body {
     letter-spacing: 2px;
-    font-weight: lighter !important;
+    
 }
 
 h2 {
@@ -22,4 +22,20 @@ h3 {
 .ListerNav, a {
     color: aliceblue;
     padding-left: 2%;
+}
+
+.uploadStyle{
+    line-height: 200px;
+}
+
+Form{
+    padding: 2%;
+}
+
+.picker{
+    width: 100%;
+}
+
+.description{
+    rows: 5;
 }
