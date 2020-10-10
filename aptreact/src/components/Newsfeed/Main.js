@@ -1,4 +1,4 @@
-import axios from "../../axios";
+import axios from "../../utils/axios";
 import React, { useState, useEffect } from "react";
 import "./Main.css";
 import Video from "./Video";
@@ -21,7 +21,6 @@ function Main() {
   return (
     //BEM naming convention
     <div className="main">
-      <h1>Real Estate Video Site test</h1>
       <div className="main_videos">
         {videos.map(
           ({ url, channel, description, apt, likes, messages, shares }) => (
