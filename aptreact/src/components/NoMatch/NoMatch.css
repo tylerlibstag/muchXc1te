@@ -13,13 +13,3 @@ h3 {
 }
 
 /* NoMatch STYLES */
-
-.NoMatchNav {
-    background-color: #2B89AD;
-    padding: 2%;
-}
-
-.NoMatchNav, a {
-    color: aliceblue;
-    padding-left: 2%;
-}

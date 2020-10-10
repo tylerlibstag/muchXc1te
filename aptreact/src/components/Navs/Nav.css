@@ -1,0 +1,9 @@
+.Nav {
+    background-color: #2B89AD;
+    padding: 2%;
+}
+
+.Nav, a {
+    color: aliceblue;
+    padding-left: 2%;
+}

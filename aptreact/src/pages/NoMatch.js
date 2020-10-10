@@ -1,13 +1,13 @@
 import React from "react";
 import "../components/NoMatch/NoMatch.css";
 import 'bootstrap/dist/css/bootstrap.css';
-import NoMatchNav from "../components/NoMatch/NoMatchNav";
+import UserAuthNav from "../components/Navs/UserAuthNav";
 
 function NoMatch() {
     return (
         // This will be a fun lil graphic telling the user theres nothing here
         <div>
-            <NoMatchNav/>
+            <UserAuthNav/>
         </div>
     )
 }

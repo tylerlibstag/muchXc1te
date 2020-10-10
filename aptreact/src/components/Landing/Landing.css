@@ -1,6 +1,7 @@
 /* GLOBAL STYLES */
 body {
     letter-spacing: 2px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
     font-weight: lighter !important;
 }
 

@@ -1,14 +1,14 @@
 import React from "react";
 import "../components/Newsfeed/Newsfeed.css"
 import 'bootstrap/dist/css/bootstrap.css';
-import NewsfeedNav from "../components/Newsfeed/NewsfeedNav";
+import FeedNav from "../components/Navs/FeedNav";
 import Main from "../components/Newsfeed/Main";
-import SideNav from "../components/Newsfeed/SideNav";
+import SideNav from "../components/Navs/SideNav";
 
 function Newsfeed() {
     return (
         <div>
-            <NewsfeedNav/>
+            <FeedNav/>
             <div>
                 <SideNav/>
             </div>

@@ -13,13 +13,3 @@ h3 {
 }
 
 /* LOGIN STYLES */
-
-.LoginNav {
-    background-color: #2B89AD;
-    padding: 2%;
-}
-
-.LoginNav, a {
-    color: aliceblue;
-    padding-left: 2%;
-}

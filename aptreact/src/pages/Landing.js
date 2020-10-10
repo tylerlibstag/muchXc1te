@@ -1,7 +1,7 @@
 import React from "react";
 import "../components/Landing/Landing.css";
 import 'bootstrap/dist/css/bootstrap.css';
-import LandingNav from "../components/Landing/LandingNav"
+import LandingNav from "../components/Navs/LandingNav"
 import HeaderHero from "../components/Images/HeaderHero.png"
 
 function Landing () {
@@ -11,8 +11,7 @@ function Landing () {
             <div className="container" id="Hero">
                 <div className="row">
                     <div className="col-md-4 my-auto">
-                        <h2>Opening text here</h2>
-                        <h3>and the rest of the tag line here</h3>
+                        <h3>The community-driven solution to house hunting.</h3>
                     </div>
                     <div className="col-md-8 text-center my-auto">
                         <img src={HeaderHero} id="HeaderHero" alt="A skater, a dog walker in heels, and two phone users walking out of a large phone."/>

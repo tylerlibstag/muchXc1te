@@ -13,13 +13,3 @@ h3 {
 }
 
 /* Lister STYLES */
-
-.ListerNav {
-    background-color: #2B89AD;
-    padding: 2%;
-}
-
-.ListerNav, a {
-    color: aliceblue;
-    padding-left: 2%;
-}
