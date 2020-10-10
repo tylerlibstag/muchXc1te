@@ -8,10 +8,12 @@ import mongoose from "mongoose";
 import keys from "./config/keys.js";
 import passport from "passport";
 import cors from "cors";
-import passportSetup from "./config/twitterPassportSetup.js";
+import twitterPassportSetup from "./config/twitterPassportSetup.js";
+import localPassportSetup from "./config/localUserPassportSetup.js";
 import session from "express-session";
 import authRoutes from "./routes/auth-routes.js";
 import cookieParser from "cookie-parser";
+const MongoStore = require("connect-mongo")(session);
 
 //middleware to store session data on the client
 import cookieSession from "cookie-session";
@@ -71,6 +73,10 @@ app.use(
     name: "session",
     keys: [keys.COOKIE_KEY],
     maxAge: 24 * 60 * 60 * 1000, // session will expire after 24 hours
+    resave: false,
+    saveUninitialized: true,
+    // to store local user signup data
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
   })
 );
 
@@ -199,10 +205,13 @@ app.use(
 );
 
 // set up auth routes
+// twitter
 app.use("/auth", authRoutes);
 const authCheck = (req, res, next) => {
   next();
 };
+// local
+app.use("/api/auth", authRoutes);
 
 // user auth sign-in on home page
 // if user is already logged in, send the profile response,

@@ -7,9 +7,11 @@ const userSchema = new Schema({
   twitterId: String,
   profileImageUrl: String,
   messages: String
+  date:{
+    type: Date,
+    default: Date.now
+}
 });
 
 const User = mongoose.model("user", userSchema);
-
-// module.exports = User;
 export default User;
