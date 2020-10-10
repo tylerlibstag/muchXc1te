@@ -6,7 +6,7 @@ const userSchema = new Schema({
   screenName: String,
   twitterId: String,
   profileImageUrl: String,
-  messages: String
+  messages: String,
   date:{
     type: Date,
     default: Date.now
