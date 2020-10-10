@@ -6,6 +6,7 @@ const userSchema = new Schema({
   screenName: String,
   twitterId: String,
   profileImageUrl: String,
+  messages: String
   date:{
     type: Date,
     default: Date.now
@@ -13,5 +14,4 @@ const userSchema = new Schema({
 });
 
 const User = mongoose.model("user", userSchema);
-
 export default User;
