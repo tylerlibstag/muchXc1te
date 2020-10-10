@@ -8,6 +8,10 @@ const aptReactSchema = mongoose.Schema({
   messages: String,
   description: String,
   shares: String,
+  date:{
+    type: Date,
+    default: Date.now
+}
 });
 
 // Collection inside the database
