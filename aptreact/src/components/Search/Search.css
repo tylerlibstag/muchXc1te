@@ -13,13 +13,3 @@ h3 {
 }
 
 /* Search STYLES */
-
-.SearchNav {
-    background-color: #2B89AD;
-    padding: 2%;
-}
-
-.SearchNav, a {
-    color: aliceblue;
-    padding-left: 2%;
-}

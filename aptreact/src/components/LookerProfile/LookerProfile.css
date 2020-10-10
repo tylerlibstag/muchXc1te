@@ -13,13 +13,3 @@ h3 {
 }
 
 /* Looker STYLES */
-
-.LookerNav {
-    background-color: #2B89AD;
-    padding: 2%;
-}
-
-.LookerNav, a {
-    color: aliceblue;
-    padding-left: 2%;
-}

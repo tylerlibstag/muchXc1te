@@ -1,13 +1,13 @@
 import React from "react";
 import "../components/Search/Search.css";
 import 'bootstrap/dist/css/bootstrap.css';
-import SearchNav from "../components/Search/SearchNav";
-import SideNav from "../components/Newsfeed/SideNav";
+import FeedNav from "../components/Navs/FeedNav";
+import SideNav from "../components/Navs/SideNav";
 
 function Search() {
     return (
         <div>
-            <SearchNav/>
+            <FeedNav/>
             <div>
                 <SideNav/>
             </div>

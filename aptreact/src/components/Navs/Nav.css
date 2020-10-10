@@ -1,0 +1,28 @@
+.Nav {
+    background-color: #2B89AD;
+    padding: 2%;
+}
+
+.Nav, a {
+    font-weight: 400;
+}
+
+/* unvisited link */
+.Nav, a:link {
+    color: aliceblue;
+  }
+  
+  /* visited link */
+.Nav,  a:visited {
+    color: aliceblue;
+  }
+  
+  /* mouse over link */
+.Nav, a:hover {
+    color: aliceblue;
+  }
+  
+  /* selected link */
+.Nav, a:active {
+    color: aliceblue;
+  }

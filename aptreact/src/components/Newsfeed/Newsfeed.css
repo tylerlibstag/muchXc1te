@@ -52,14 +52,3 @@ h3 {
     /* place-items: left;  */
     color: white;
 }
-
-.NewsfeedNav {
-    background-color: #2B89AD;
-    padding: 2%;
-}
-
-.NewsfeedNav, a {
-    color: aliceblue;
-    padding-left: 2%;
-}
-
