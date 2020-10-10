@@ -28,6 +28,7 @@ const { Storage } = require("@google-cloud/storage");
 import Data from "./seed/data.js";
 import Videos from "./models/dbModel.js";
 
+
 // /////////////////Variables /////////////////////////////////////
 
 // Variables for Database
@@ -54,6 +55,9 @@ app.use(cookieParser());
 app.use(passport.initialize());
 // deserialize cookie from the browser
 app.use(passport.session());
+
+// app.use("/api", apiRoutes);
+// app.use("/", htmlRoutes)
 
 ////////////// Config //////////////////////////////////////////
 //DB config
@@ -135,6 +139,17 @@ app.post("/upload", multer.single("file"), (req, res, next) => {
 
   blobStream.end(req.file.buffer);
 });
+//////////////////////////////////////////
+// app.get("/api/dbModel", (req, res) => {
+//   userCrit.find({})
+//     .then(dbModel => {
+      
+//       res.json(dbModel);
+//     })
+//     .catch(err => {
+//       res.status(400).json(err);
+//     });
+// });
 
 /****************  BEGINNING OF DATABASE TEST POST ROUTE **********/
 app.post("/v2/posts", (req, res) => {

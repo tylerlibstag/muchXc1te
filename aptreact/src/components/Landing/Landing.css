@@ -13,17 +13,6 @@ h3 {
 }
 
 /* LANDING STYLES */
-
-.LandingNav {
-    background-color: #2B89AD;
-    padding: 2%;
-}
-
-.LandingNav, a {
-    color: aliceblue;
-    padding-left: 2%;
-}
-
 #HeaderHero {
     max-width: 100%;
 }
