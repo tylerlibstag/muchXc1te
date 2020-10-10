@@ -18,7 +18,10 @@ const aptReactSchema = mongoose.Schema({
   neargrocery: Boolean,
   likes: String,
   shares: String,
-
+  date:{
+    type: Date,
+    default: Date.now
+}
 });
 
 // Collection inside the database
