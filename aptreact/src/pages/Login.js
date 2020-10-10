@@ -3,7 +3,7 @@ import "../components/Login/Login.css";
 import 'bootstrap/dist/css/bootstrap.css';
 // import PropTypes from "prop-types";
 // import { Link } from "react-router-dom";
-import LoginNav from "../components/Login/LoginNav"
+import UserAuthNav from "../components/Navs/UserAuthNav"
 
 
 function Login() {
@@ -46,7 +46,7 @@ function Login() {
     return (
         // Allows user to sign in to existing profile
         <div>
-            <LoginNav/>
+            <UserAuthNav/>
             <div>
                 <h3>Login with your username and password.</h3>
                 <form>

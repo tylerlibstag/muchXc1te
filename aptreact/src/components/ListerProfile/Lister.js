@@ -1,7 +1,5 @@
 import React from "react";
 import "./ListerProfile.css";
-import Upload from "./Upload";
-import Manage from "./Manage";
 import Demo from "./UploadModal";
 
 

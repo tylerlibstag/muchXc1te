@@ -1,14 +1,14 @@
 import React from "react";
 import "../components/SignUp/SignUp.css";
 import 'bootstrap/dist/css/bootstrap.css';
-import SignUpNav from "../components/SignUp/SignUpNav"
+import UserAuthNav from "../components/Navs/UserAuthNav"
 import SignUpHero from "../components/Images/SignUpHero.png"
 
 function SignUp() {
     return (
         // Allows user to sign in to existing profile
         <div>
-            <SignUpNav/>
+            <UserAuthNav/>
             <div className="container" id="Hero">
                 <div className="row">
                     <div className="col-md-4 my-auto">

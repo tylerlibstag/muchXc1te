@@ -1,7 +1,7 @@
 import React from "react";
 import "../components/Landing/Landing.css";
 import 'bootstrap/dist/css/bootstrap.css';
-import LandingNav from "../components/Landing/LandingNav"
+import LandingNav from "../components/Navs/LandingNav"
 import HeaderHero from "../components/Images/HeaderHero.png"
 
 function Landing () {
