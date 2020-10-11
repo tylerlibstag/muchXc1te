@@ -207,9 +207,15 @@ app.use(
 // set up auth routes
 // twitter
 app.use("/auth", authRoutes);
+
 const authCheck = (req, res, next) => {
+  // console.log(`This is the res for the authCheck in sever.js:${res}`);
+  // console.log(`This is the req for the authCheck in sever.js:${req}`);
   next();
 };
+
+console.log(authCheck);
+
 // local
 app.use("/api/auth", authRoutes);
 
@@ -217,7 +223,7 @@ app.use("/api/auth", authRoutes);
 // if user is already logged in, send the profile response,
 // otherwise, send a 401 response that the user is not authenticated
 // authCheck before navigating to home page
-app.get("/", authCheck, (req, res) => {
+app.get("/Newsfeed", authCheck, (req, res) => {
   res.status(200).json({
     authenticated: true,
     message: "user successfully authenticated",

@@ -1,22 +1,29 @@
-import React from "react"
-import "./Nav.css"
+import React, { useState } from "react";
+import "./Nav.css";
+import "../Landing/style";
 import 'bootstrap/dist/css/bootstrap.css';
+import SignUpLoginModal from "../SignUpLoginModal/SignUpLoginModal";
+import { LoginButton } from "../Landing/style";
 
 function LandingNav() {
+    const [show, setShow] = useState(false);
+
     return (
         <div>
-            <nav className="Nav">
-            <div class="row">
+            <div className="Nav">
+            <div className="row">
                     <div className="col-2">
                         <a href="/">Home</a>
                     </div>
                     <div className="col-6"></div>
                     <div className="col-4">
-                        <a href="/SignUp">Sign Up</a>
-                        <a href="/Login">Login</a>
+                    <LoginButton size="lg" onClick={() => setShow(true)}>
+                                Login or Sign Up
+                        </LoginButton>
+                    <SignUpLoginModal show={show} setShow={setShow} />
                     </div>
                 </div>
-            </nav>
+            </div>
         </div>
     )
 }
