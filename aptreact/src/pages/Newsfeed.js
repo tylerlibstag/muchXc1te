@@ -15,9 +15,9 @@ function Newsfeed() {
             <FeedNav />
             <Container fluid>
                 <Row>
-                    <Col xs={1}><SideNav /></Col>
-                    <Col xs={10}> <Main /></Col>
-                    <Col xs={1}>Here's the Side Nav.....</Col>
+                    <Col xs={2}><SideNav /></Col>
+                    <Col xs={8}> <Main /></Col>
+                    <Col xs={2}><SideNav /></Col>
 
                 </Row>
             </Container>

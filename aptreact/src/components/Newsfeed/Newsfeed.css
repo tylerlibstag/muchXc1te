@@ -14,17 +14,6 @@ h3 {
 
 /* Newsfeed STYLES */
 
-
-.NewsfeedNav {
-    background-color: #2B89AD;
-    padding: 2%;
-}
-
-.NewsfeedNav, a {
-    color: aliceblue;
-    padding-left: 2%;
-}
-
 .container-fluid{
     border: 0;
     padding: 0;
