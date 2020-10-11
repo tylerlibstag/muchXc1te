@@ -33,3 +33,12 @@ html {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.newsfeed{
+  padding: 0;
+  border: 0;
+  margin: 0;
+  /* display: grid; */
+  /* place-items: left;  */
+  color: black;
+}

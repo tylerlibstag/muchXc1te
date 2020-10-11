@@ -16,6 +16,8 @@ function Main() {
 
     fetchPosts();
   }, []);
+
+  
   console.log(videos);
 
   return (
