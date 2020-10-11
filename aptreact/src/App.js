@@ -2,8 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import 'rsuite/dist/styles/rsuite-default.css';
 import Landing from "./pages/Landing";
-import SignUp from "./pages/SignUp";
-import Login from "./pages/Login";
 import Newsfeed from "./pages/Newsfeed";
 import Search from "./pages/Search";
 import LookerProfile from "./pages/LookerProfile";
@@ -17,8 +15,6 @@ function App() {
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route exact path="/Landing" component={Landing} />
-          <Route exact path="/SignUp" component={SignUp} />
-          <Route exact path="/Login" component={Login} />
           <Route exact path="/Newsfeed" component={Newsfeed} />
           <Route exact path="/Search" component={Search} />
           <Route exact path="/LookerProfile" component={LookerProfile} />
