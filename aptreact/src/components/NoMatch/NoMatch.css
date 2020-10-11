@@ -13,3 +13,7 @@ h3 {
 }
 
 /* NoMatch STYLES */
+
+#NoMatch {
+    max-width: 50%;
+}

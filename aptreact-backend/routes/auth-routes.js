@@ -2,12 +2,13 @@ import express from "express";
 // this is so we can access the Router() from the express library
 const router = express.Router();
 import passport from "passport";
-const CLIENT_HOME_PAGE_URL = "http://localhost:3000/Landing";
+const CLIENT_HOME_PAGE_URL = "http://localhost:3000/Newsfeed";
 import db from "../models/localUserModel.js";
 
 // ////// TWITTER ROUTES //////////////////////////////////
 // when login is successful, retrieve user info
-router.get("/Login/success", (req, res) => {
+// when login is successful, retrieve user info
+router.get("/login/success", (req, res) => {
   if (req.user) {
     res.json({
       success: true,
@@ -36,8 +37,9 @@ router.get("/Logout", (req, res) => {
 router.get("/twitter", passport.authenticate("twitter"));
 
 // redirect to home page after successfully login via twitter
+// "/auth/twitter/redirect" is working and server is redirecting user to react app homepage
+
 router.get(
-  // "/auth/twitter/redirect" is working and server is redirecting user to react app homepage
   "/twitter/redirect",
   passport.authenticate("twitter", {
     successRedirect: CLIENT_HOME_PAGE_URL,
