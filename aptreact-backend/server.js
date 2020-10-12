@@ -182,15 +182,24 @@ app.get("/", (req, res) => {
 app.get("/v1/posts", (req, res) => res.status(200).send(Data));
 
 // mongoose test route.
-app.get("/v2/posts", (req, res) => {
+app.get("/v2/posts/:category/:search", (req, res) => {
   // this is to get everything from the database.
+  console.log('req.body in category rouge!!!', req.params)
 
-  Videos.find((err, data) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.status(200).send(data);
-    }
+  Videos.find({
+    [req.params.category]: req.params.search
+  },(err, data) => {
+
+    console.log('data and err!!', data, err)
+
+    res.json(data)
+    
+
+    // if (err) {
+    //   res.status(500).send(err);
+    // } else {
+     
+    // }
   });
 });
 
