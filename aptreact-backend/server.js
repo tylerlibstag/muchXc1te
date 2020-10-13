@@ -26,7 +26,7 @@ const { Storage } = require("@google-cloud/storage");
 
 //database dependencies
 import Data from "./seed/data.js";
-import Videos from "./models/dbModel.js";
+import Videos from "./models/videoModel.js";
 
 
 // /////////////////Variables /////////////////////////////////////
@@ -125,8 +125,9 @@ app.post("/upload", multer.single("file"), (req, res, next) => {
 
     // This is
     Videos.findOneAndUpdate(
-      { channel: "sssanga" },
+      { channel: "yeet" },
       { url: publicUrl },
+
       function (err, result) {
         if (err) {
           res.send(err);
@@ -143,7 +144,7 @@ app.post("/upload", multer.single("file"), (req, res, next) => {
 // app.get("/api/dbModel", (req, res) => {
 //   userCrit.find({})
 //     .then(dbModel => {
-      
+
 //       res.json(dbModel);
 //     })
 //     .catch(err => {
