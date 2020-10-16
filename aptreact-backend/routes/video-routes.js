@@ -102,8 +102,13 @@ videoRouter.post("/upload3", multer.single("file"), (req, res, next) => {
 
 
 
-////
+
+
+
+
+
 videoRouter.post("/upload2", (req, res) => {
+
     const {
         url,
         screenName,
@@ -143,6 +148,7 @@ videoRouter.post("/upload2", (req, res) => {
         likes: likes,
         shares: shares
     })
+
     newVideo.save()
         .then(() => res.json({
             message: "Video uploaded successfully"
@@ -151,6 +157,45 @@ videoRouter.post("/upload2", (req, res) => {
             "error": err,
             "message": "Error uploading video"
         }))
+
+
+
+})
+// Tylers route starts here!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+app.get("/v5/posts/:state/:city/", (req, res) => {
+
+    Videos.find(
+        { state: req.params.state },
+        { city: req.params.city },
+
+
+        function (err, result) {
+            if (err) {
+                res.send(err);
+            } else {
+                res.send(result);
+            }
+        }
+
+    );
+    console.log('city test is working!!!', req.params);
+});
+
+//working route  
+
+app.get("/v2/posts/:category/:search/", (req, res) => {
+    // this is to get everything from the database.
+    console.log('req.body in category rouge!!!', req.params)
+
+    Videos.find({
+        [req.params.category]: req.params.search
+    }, (err, data) => {
+
+        console.log('data and err!!', data, err)
+
+        res.json(data)
+
+    });
 
 });
 
@@ -242,6 +287,7 @@ videoRouter.post("/upload4", multer.single("url"), (req, res, next) => {
         );
     });
     blobStream.end(req.file.buffer);
+
 });
 
 export default videoRouter;

@@ -11,7 +11,7 @@ function FeedNav() {
     return (
         <div>
             <nav className="Nav">
-                <div class="row">
+                <div className="row">
                     <div className="col-2">
                         <a href="/">Home</a>
                     </div>

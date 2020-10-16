@@ -27,7 +27,12 @@ const { Storage } = require("@google-cloud/storage");
 //database dependencies
 import Data from "./seed/data.js";
 import Videos from "./models/videoModel.js";
+
+import data from "./seed/data.js";
+import { createBrotliDecompress } from "zlib";
+
 import videoRoutes from "./routes/video-routes.js"
+
 
 
 // /////////////////Variables /////////////////////////////////////
@@ -186,28 +191,25 @@ app.get("/", (req, res) => {
 app.get("/v1/posts", (req, res) => res.status(200).send(Data));
 
 
+
 // mongoose route.
 app.get("/v2/posts", (req, res) => {
 
+
   // this is to get everything from the database.
-  console.log('req.body in category rouge!!!', req.params)
 
-  Videos.find({
-    [req.params.category]: req.params.search
-  },(err, data) => {
-
-    console.log('data and err!!', data, err)
-
-    res.json(data)
-    
-
-    // if (err) {
-    //   res.status(500).send(err);
-    // } else {
-     
-    // }
+  Videos.find((err, data) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(200).send(data);
+    }
   });
 });
+
+
+
+
 
 app.use("/api/videoRoute", videoRoutes);
 
@@ -235,6 +237,7 @@ console.log(authCheck);
 
 // local
 app.use("/api/auth", authRoutes);
+
 
 // user auth sign-in on home page
 // if user is already logged in, send the profile response,
