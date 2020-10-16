@@ -3,7 +3,7 @@ import "../components/ListerProfile/ListerProfile.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import FeedNav from "../components/Navs/FeedNav";
 import Lister from "../components/ListerProfile/Lister";
-import Upload from "../components/ListerProfile/Upload";
+
 import Manage from "../components/ListerProfile/Manage";
 import SideNav from "../components/Navs/SideNav";
 import Button from "react-bootstrap/Button";
@@ -28,9 +28,7 @@ function ListerProfile() {
             </div>
             <div>
                 <Lister />
-                <Button a href="/Upload" onclick={ButtonLink}>
-                    Upload a video via route.
-                </Button>
+
                 <Manage />
             </div>
         </div>

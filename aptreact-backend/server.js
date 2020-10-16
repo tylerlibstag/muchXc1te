@@ -27,8 +27,12 @@ const { Storage } = require("@google-cloud/storage");
 //database dependencies
 import Data from "./seed/data.js";
 import Videos from "./models/videoModel.js";
+
 import data from "./seed/data.js";
 import { createBrotliDecompress } from "zlib";
+
+import videoRoutes from "./routes/video-routes.js"
+
 
 
 // /////////////////Variables /////////////////////////////////////
@@ -107,6 +111,7 @@ app.use((req, res, next) => {
 app.post("/upload", multer.single("file"), (req, res, next) => {
   if (!req.file) {
     res.status(400).send("No file uploaded.");
+
     return;
   }
 
@@ -116,6 +121,7 @@ app.post("/upload", multer.single("file"), (req, res, next) => {
 
   blobStream.on("error", (err) => {
     next(err);
+    console.log(err);
   });
 
   blobStream.on("finish", () => {
@@ -127,12 +133,12 @@ app.post("/upload", multer.single("file"), (req, res, next) => {
 
     // This is
     Videos.findOneAndUpdate(
-      { channel: "yeet" },
+      { channel: "atherUser" },
       { url: publicUrl },
 
       function (err, result) {
         if (err) {
-          res.send(err);
+          res.send(err)
         } else {
           res.send(result);
         }
@@ -184,9 +190,12 @@ app.get("/", (req, res) => {
 // local seed database route
 app.get("/v1/posts", (req, res) => res.status(200).send(Data));
 
-// mongoose test route.
 
+
+// mongoose route.
 app.get("/v2/posts", (req, res) => {
+
+
   // this is to get everything from the database.
 
   Videos.find((err, data) => {
@@ -201,6 +210,8 @@ app.get("/v2/posts", (req, res) => {
 
 
 
+
+app.use("/api/videoRoute", videoRoutes);
 
 // ********** AUTH ROUTES **********************************
 // set up cors to allow us to accept requests from our client
