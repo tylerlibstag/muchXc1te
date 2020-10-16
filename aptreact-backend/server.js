@@ -185,16 +185,27 @@ app.get("/", (req, res) => {
 // local seed database route
 app.get("/v1/posts", (req, res) => res.status(200).send(Data));
 
+
 // mongoose route.
 app.get("/v2/posts", (req, res) => {
-  // this is to get everything from the database.
 
-  Videos.find((err, data) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.status(200).send(data);
-    }
+  // this is to get everything from the database.
+  console.log('req.body in category rouge!!!', req.params)
+
+  Videos.find({
+    [req.params.category]: req.params.search
+  },(err, data) => {
+
+    console.log('data and err!!', data, err)
+
+    res.json(data)
+    
+
+    // if (err) {
+    //   res.status(500).send(err);
+    // } else {
+     
+    // }
   });
 });
 

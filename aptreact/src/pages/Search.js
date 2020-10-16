@@ -8,8 +8,9 @@ import SideNav from "../components/Navs/SideNav";
 function Search(props) {
     
     const [userSearch, setSearch] = useState({
-        searches: "",
-        results: [] 
+        search: "",
+        results: [],
+        category: ""
     });
 
     var handleTyping = (e) => {
@@ -18,24 +19,30 @@ function Search(props) {
         })
     }
     var handleClick = () => {
-        axios.get(userSearch.search, function (data) {
-            console.log(data)
-            setSearch({
-                ...userSearch, results: data.data.data
-            })
+        console.log('we r sedning this to backend', userSearch)
+        axios.get(`http://localhost:9000/v2/posts/${userSearch.category}/`+ userSearch.search).then((data) => {
+            console.log('dataaaa', data.data)
+            setSearch({...userSearch, results: data.data});
         })
-        console.log("yougot clicked")
+       
+    }
+
+    var handleCategory = (e) => {
+        setSearch({
+            ...userSearch, category: e.target.value
+        })
+
     }
     useEffect(() => {
       async function fetchPosts() {
         const response = await axios.get("/v2/posts");
-        setSearch(response.data);
+        setSearch({...userSearch, results: response.data});
         return response;
       }
   
       fetchPosts();
     }, []);
-    console.log(userSearch);
+    console.log('tbis is our userstate!!!! ',userSearch);
     
     return (
         <div>
@@ -47,16 +54,20 @@ function Search(props) {
             <input onChange={handleTyping}/>
             <button onClick={handleClick}>Search</button>
             </div>
+            <select id="lang" onChange={handleCategory}>
+                  <option value="zipcode">Zipcode</option>
+                  <option value="bedrooms">bedrooms</option>
+                  <option value="bathrooms">bathrooms</option>
+               </select>
 
             <div>{props.url}</div>
-            {/* {userSearch.results.map(function (user) {
-                console.log("we hit the map")
+            {userSearch.results.map(function (user, i) {
                 return (
                     
-                    <div key={user.url}>
+                    <div key={i}>
                       
-                     <h1>{user.bathrooms}</h1>
-                        
+                     <h1>{user._id}</h1>
+                     <h1>{user.state}</h1>
                       
                         
 
@@ -66,7 +77,7 @@ function Search(props) {
 
                 )
 
-            })} */}
+            })}
 
           
           </div>
