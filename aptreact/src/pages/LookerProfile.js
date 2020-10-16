@@ -4,8 +4,9 @@ import FeedNav from "../components/Navs/FeedNav";
 import SideNav from "../components/Navs/SideNav"
 import Saved from "../components/LookerProfile/Saved";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-import { Container, Row, Col } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 
 function LookerProfile() {

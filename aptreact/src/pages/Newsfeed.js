@@ -11,8 +11,7 @@ import Col from "react-bootstrap/Col";
 
 function Newsfeed() {
     return (
-        <div className="newsfeed">
-            <Container fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
+            <Container className="newsfeed" fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
                 <FeedNav />
                 <Row>
                     <Col xs={1}><SideNav /></Col>
@@ -20,7 +19,6 @@ function Newsfeed() {
                     <Col xs={1}>Here's the Side Nav.....</Col>
                 </Row>
             </Container>
-        </div>
 
         // Take inspiration from TIKTOK
         // Another (right) side component could be added here as well
