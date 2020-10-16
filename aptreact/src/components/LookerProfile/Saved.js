@@ -1,43 +1,48 @@
-import React, { useState, useCallback } from "react";
-import "./LookerProfile.css";
-import { render } from "react-dom";
-import Gallery from "react-image-video-gallery";
-import Carousel, { Modal, ModalGateway } from "react-images";
-// import { photos } from "./photos";
-import Video from "../Newsfeed/Video";
+import axios from "../../utils/axios";
+// import React, { useState, useEffect } from "react";
+import React from "react";
+
+import { Carousel } from "react-bootstrap";
 
 function Saved() {
-  const [currentVideos, setCurrentVideos] = useState([]);
-  const [viewerIsOpen, setViewerIsOpen] = useState(false);
-
-  const openLightbox = useCallback((event, { video, index }) => {
-    setCurrentVideos(index);
-    setViewerIsOpen(true);
-  }, []);
-
-  const closeLightbox = () => {
-    setCurrentVideos(0);
-    setViewerIsOpen(false);
-  };
-
   return (
-    <div>
-      <Gallery Video={Video} onClick={openLightbox} />
-      <ModalGateway>
-        {viewerIsOpen ? (
-          <Modal onClose={closeLightbox}>
-            <Carousel
-              currentIndex={currentVideos}
-              views={Video.map(x => ({
-                ...x,
-                srcset: x.srcSet,
-                caption: x.title
-              }))}
-            />
-          </Modal>
-        ) : null}
-      </ModalGateway>
-    </div>
+    <Carousel className="mainContainer">
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="holder.js/800x400?text=First slide&bg=373940"
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h3>First slide label</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="holder.js/800x400?text=Second slide&bg=282c34"
+          alt="Third slide"
+        />
+
+        <Carousel.Caption>
+          <h3>Second slide label</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="holder.js/800x400?text=Third slide&bg=20232a"
+          alt="Third slide"
+        />
+
+        <Carousel.Caption>
+          <h3>Third slide label</h3>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
   );
 };
 

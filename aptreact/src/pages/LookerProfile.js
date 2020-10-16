@@ -14,13 +14,13 @@ function LookerProfile() {
         <Container fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
             <FeedNav />
                 <Row>
-                    <Col xs={2}>
+                    <Col xs={1}>
                         <SideNav />
                     </Col>
-                    <Col xs={8}>
+                    <Col xs={10}>
                         <Saved />
                     </Col>
-                    <Col xs={2}>Right Nav Goes Here</Col>
+                    <Col xs={1}>Right Nav Goes Here</Col>
                 </Row>
         </Container>
     )

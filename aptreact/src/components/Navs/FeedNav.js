@@ -15,8 +15,8 @@ function FeedNav() {
                     <div className="col-2">
                         <a href="/">Home</a>
                     </div>
-                    <div className="col-6"></div>
-                    <div className="col-4">
+                    <div className="col-7"></div>
+                    <div className="col-3" >
                         <LoginButton size="lg" onClick={() => setShow(true)}>
                             Upload Video
                         </LoginButton>
