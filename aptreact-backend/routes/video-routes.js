@@ -162,7 +162,7 @@ videoRouter.post("/upload2", (req, res) => {
 
 })
 // Tylers route starts here!!!!!!!!!!!!!!!!!!!!!!!!!!! 
-app.get("/v5/posts/:state/:city/", (req, res) => {
+videoRouter.get("/v5/posts/:state/:city/", (req, res) => {
 
     Videos.find(
         { state: req.params.state },
@@ -183,7 +183,7 @@ app.get("/v5/posts/:state/:city/", (req, res) => {
 
 //working route  
 
-app.get("/v2/posts/:category/:search/", (req, res) => {
+videoRouter.get("/v2/posts/:category/:search/", (req, res) => {
     // this is to get everything from the database.
     console.log('req.body in category rouge!!!', req.params)
 
