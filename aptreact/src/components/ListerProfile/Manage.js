@@ -4,7 +4,7 @@ import "./ListerProfile.css";
 function Manage() {
     return (
         // This will allow the user to update or delete an existing post
-        <div>..</div>
+        <div> this the management div</div>
 
         // To be coded:
         // Show user's posts as a GALLERY of videos

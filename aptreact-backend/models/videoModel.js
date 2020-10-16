@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
-const Schema = mongoose.Schema;
 
-const aptReactSchema = Schema({
+const aptReactSchema = mongoose.Schema({
   url: String,
   screenName: String,
   description: String,
