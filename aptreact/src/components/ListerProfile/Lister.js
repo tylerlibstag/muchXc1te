@@ -1,6 +1,6 @@
 import React from "react";
 import "./ListerProfile.css";
-import Demo from "./UploadModal";
+
 
 
 function Lister() {
@@ -10,8 +10,8 @@ function Lister() {
         // A div containing the user's PROFILE PIC, NAME, type of user and USERNAME 
         // (and any other information you see fit - maybe email or option to change password...)
         <div>
-            <Demo />
 
+            this is the lister div
         </div>
     );
 }
