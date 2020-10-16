@@ -9,6 +9,7 @@ videoRouter.get("/upload", (req, res) => {
         .catch(err => console.log(err))
 });
 ////
+
 videoRouter.post("/upload", (req, res) => {
     const {
         url,
@@ -49,6 +50,7 @@ videoRouter.post("/upload", (req, res) => {
         likes: likes,
         shares: shares
     })
+
     newVideo.save()
         .then(() => res.json({
             message: "Created account successfully"
@@ -59,6 +61,43 @@ videoRouter.post("/upload", (req, res) => {
             "message": "Error creating account"
         }))
 
+
 })
+// Tylers route starts here!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+app.get("/v5/posts/:state/:city/", (req, res) => {
+
+    Videos.find(
+        { state: req.params.state },
+        { city: req.params.city },
+
+
+        function (err, result) {
+            if (err) {
+                res.send(err);
+            } else {
+                res.send(result);
+            }
+        }
+
+    );
+    console.log('city test is working!!!', req.params);
+});
+
+//working route  
+
+app.get("/v2/posts/:category/:search/", (req, res) => {
+    // this is to get everything from the database.
+    console.log('req.body in category rouge!!!', req.params)
+
+    Videos.find({
+        [req.params.category]: req.params.search
+    }, (err, data) => {
+
+        console.log('data and err!!', data, err)
+
+        res.json(data)
+
+    });
+});
 
 export default videoRouter;
