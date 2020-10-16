@@ -7,6 +7,9 @@ import Lister from "../components/ListerProfile/Lister";
 import Manage from "../components/ListerProfile/Manage";
 import SideNav from "../components/Navs/SideNav";
 import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function ListerProfile() {
 
@@ -18,20 +21,26 @@ function ListerProfile() {
 
     }
     return (
-
-
-        // This is the main page to show components: LISTER to show the user their profile, UPLOAD for user to make posts, and MANAGE to update or delete an existing post
-        <div>
+        // This is the main page to show components: LISTER to show the user their profile, 
+        // UPLOAD for user to make posts, and MANAGE to update or delete an existing post.
+        <Container fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
             <FeedNav />
-            <div>
-                <SideNav />
-            </div>
-            <div>
-                <Lister />
 
-                <Manage />
-            </div>
-        </div>
+                <Row>
+                    <Col xs={1}>
+                        <SideNav />
+                    </Col>
+                    <Col xs={10}>
+                        <Lister />
+                            <Button a href="/Upload" onclick={ButtonLink}>
+                                Upload a video via route.
+                            </Button>
+                        <Manage />
+                    </Col>
+                    <Col xs={1}>Right Nav Goes Here</Col>
+                </Row>
+        </Container>
+
     )
 }
 
