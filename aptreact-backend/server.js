@@ -28,6 +28,12 @@ const { Storage } = require("@google-cloud/storage");
 import Data from "./seed/data.js";
 import Videos from "./models/videoModel.js";
 
+import data from "./seed/data.js";
+import { createBrotliDecompress } from "zlib";
+
+import videoRoutes from "./routes/video-routes.js"
+
+
 
 // /////////////////Variables /////////////////////////////////////
 
@@ -105,6 +111,7 @@ app.use((req, res, next) => {
 app.post("/upload", multer.single("file"), (req, res, next) => {
   if (!req.file) {
     res.status(400).send("No file uploaded.");
+
     return;
   }
 
@@ -114,6 +121,7 @@ app.post("/upload", multer.single("file"), (req, res, next) => {
 
   blobStream.on("error", (err) => {
     next(err);
+    console.log(err);
   });
 
   blobStream.on("finish", () => {
@@ -125,12 +133,12 @@ app.post("/upload", multer.single("file"), (req, res, next) => {
 
     // This is
     Videos.findOneAndUpdate(
-      { channel: "yeet" },
+      { channel: "atherUser" },
       { url: publicUrl },
 
       function (err, result) {
         if (err) {
-          res.send(err);
+          res.send(err)
         } else {
           res.send(result);
         }
@@ -182,27 +190,28 @@ app.get("/", (req, res) => {
 // local seed database route
 app.get("/v1/posts", (req, res) => res.status(200).send(Data));
 
-// mongoose test route.
-app.get("/v2/posts/:category/:search", (req, res) => {
+
+
+// mongoose route.
+app.get("/v2/posts", (req, res) => {
+
+
   // this is to get everything from the database.
-  console.log('req.body in category rouge!!!', req.params)
 
-  Videos.find({
-    [req.params.category]: req.params.search
-  },(err, data) => {
-
-    console.log('data and err!!', data, err)
-
-    res.json(data)
-    
-
-    // if (err) {
-    //   res.status(500).send(err);
-    // } else {
-     
-    // }
+  Videos.find((err, data) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(200).send(data);
+    }
   });
 });
+
+
+
+
+
+app.use("/api/videoRoute", videoRoutes);
 
 // ********** AUTH ROUTES **********************************
 // set up cors to allow us to accept requests from our client
@@ -228,6 +237,7 @@ console.log(authCheck);
 
 // local
 app.use("/api/auth", authRoutes);
+
 
 // user auth sign-in on home page
 // if user is already logged in, send the profile response,

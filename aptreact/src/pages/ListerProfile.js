@@ -3,7 +3,7 @@ import "../components/ListerProfile/ListerProfile.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import FeedNav from "../components/Navs/FeedNav";
 import Lister from "../components/ListerProfile/Lister";
-import Upload from "../components/ListerProfile/Upload";
+
 import Manage from "../components/ListerProfile/Manage";
 import SideNav from "../components/Navs/SideNav";
 import Button from "react-bootstrap/Button";
@@ -25,6 +25,7 @@ function ListerProfile() {
         // UPLOAD for user to make posts, and MANAGE to update or delete an existing post.
         <Container fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
             <FeedNav />
+
                 <Row>
                     <Col xs={1}>
                         <SideNav />
@@ -39,6 +40,7 @@ function ListerProfile() {
                     <Col xs={1}>Right Nav Goes Here</Col>
                 </Row>
         </Container>
+
     )
 }
 
