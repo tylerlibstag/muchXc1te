@@ -9,14 +9,15 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 
+
 function Newsfeed() {
     return (
             <Container className="newsfeed" fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
                 <FeedNav />
                 <Row>
-                    <Col xs={1}><SideNav /></Col>
-                    <Col xs={10}> <Main /></Col>
-                    <Col xs={1}>Here's the Side Nav.....</Col>
+                    <Col xs={2}><SideNav /></Col>
+                    <Col xs={8}> <Main /></Col>
+                    <Col xs={2}>Here's the Side Nav.....</Col>
                 </Row>
             </Container>
 
