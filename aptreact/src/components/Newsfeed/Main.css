@@ -20,6 +20,7 @@ html {
   position: relative;
   height: 600px;
   width: 80%;
+  /* height: 60%; */
   border-radius: 20px;
   max-width: 350px;
   scroll-snap-type: y mandatory;
