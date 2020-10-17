@@ -18,10 +18,10 @@ html {
 
 .main_videos {
   position: relative;
-  height: 800px;
-  border-radius: 20px;
+  height: 600px;
   width: 80%;
-  max-width: 500px;
+  border-radius: 20px;
+  max-width: 350px;
   scroll-snap-type: y mandatory;
   overflow: scroll;
 }
@@ -34,11 +34,3 @@ html {
   scrollbar-width: none;
 }
 
-.newsfeed{
-  padding: 0;
-  border: 0;
-  margin: 0;
-  /* display: grid; */
-  /* place-items: left;  */
-  color: black;
-}

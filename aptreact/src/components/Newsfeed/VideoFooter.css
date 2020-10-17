@@ -1,6 +1,6 @@
 .videoFooter {
   position: relative;
-  color: white;
+  color: black;
   bottom: 150px;
   margin-left: 40px;
   display: flex;
@@ -25,7 +25,8 @@
 .videoFooter_ticker > .ticker {
   height: fit-content;
   margin-left: 30px;
-  width: 60%;
+  width: 70%;
+
 }
 
 .videoFooter_ticker h1 {

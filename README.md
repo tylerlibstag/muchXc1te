@@ -4,7 +4,7 @@
 ## **Borough'd**
 
 ## Description
-A React-based social, real estate app for uploading, searching and favoriting crowd-sourced apartment walkthrough videos.
+A React-based socially-driven, real estate marketplace and rental listings app for uploading, searching and favoriting crowd-sourced walkthrough videos.
 
 Deployed app via Heroku: https://aptreact-backend.herokuapp.com/.
 
@@ -15,7 +15,7 @@ Deployed app via Heroku: https://aptreact-backend.herokuapp.com/.
 
 ## Visuals
 
-![BoroughdGif](./public/assets/images/app.gif)
+![BoroughdGif](.aptreact/public/app.gif)
 
 ### Table of Contents
 * [Usage](#Usage)
