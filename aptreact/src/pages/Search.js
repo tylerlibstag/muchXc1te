@@ -4,6 +4,7 @@ import "../components/Search/Search.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import FeedNav from "../components/Navs/FeedNav";
 import SideNav from "../components/Navs/SideNav";
+import Footer from "../components/Footer/Footer"
 
 
 function Search(props) {
@@ -139,6 +140,7 @@ function Search(props) {
                        ))
                    }
                </select>
+               <Footer />
                </div>
 
             {/* <div>{props.url}</div> */}
