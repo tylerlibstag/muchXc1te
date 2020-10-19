@@ -20,7 +20,7 @@ function LandingNav() {
                     <LoginButton size="lg" onClick={() => setShow(true)}>
                                 Login or Sign Up
                         </LoginButton>
-                    <SignUpLoginModal show={show} setShow={setShow} />
+                     <SignUpLoginModal show={show} setShow={setShow} />
                     </div>
                 </div>
             </div>
