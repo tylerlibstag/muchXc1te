@@ -88,5 +88,6 @@ router.get("/api/user_data", (req, res) => {
   req.logout();
   res.redirect("/");
 });
-
+// add url string to local user database model. usersaved videos array of strings. the url needs to be added to the array
+// once the string is in the user saved array create a get route that will get that data and post it to the saved page 
 export default router;
