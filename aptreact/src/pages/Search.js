@@ -4,8 +4,12 @@ import "../components/Search/Search.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import FeedNav from "../components/Navs/FeedNav";
 import SideNav from "../components/Navs/SideNav";
+
 import "../components/Newsfeed/Main.css"
 import Video from "../components/Newsfeed/Video";
+
+import Footer from "../components/Footer/Footer"
+
 
 var vidData = "";
 function Search(props) {
