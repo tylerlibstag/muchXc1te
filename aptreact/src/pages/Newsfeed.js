@@ -14,18 +14,18 @@ import Footer from "../components/Footer/Footer";
 
 function Newsfeed() {
     return (
-            <Container className="newsfeed" fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
-                <FeedNav fluid style={{ paddingLeft: 0, paddingRight: 0 }}/>
-                <Row>
-                    <Col xs={2}><SideNav /></Col>
-                    <Col xs={7}><Main /></Col>
-                    <Col className="profileCol" xs={3}><ProfileNav /></Col>
-                </Row>
-            </Container>
+        <Container className="newsfeed" fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
+            <FeedNav fluid style={{ paddingLeft: 0, paddingRight: 0 }} />
+            <Row>
+                <Col xs={3}><SideNav /></Col>
+                <Col xs={6}><Main /></Col>
+                <Col className="profileCol" xs={3}><ProfileNav /></Col>
+            </Row>
+        </Container>
 
-    // Take inspiration from TIKTOK
-    // Another (right) side component could be added here as well
-  );
+        // Take inspiration from TIKTOK
+        // Another (right) side component could be added here as well
+    );
 }
 
 export default Newsfeed;
