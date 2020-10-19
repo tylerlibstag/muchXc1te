@@ -11,6 +11,8 @@ import user from "../Images/usernomatch.png"
 function ProfileNav() {
     const [show, setShow] = useState(false);
 
+   
+
     return (
         <div className="profileNav">
             <div className="vl"></div>
@@ -25,7 +27,7 @@ function ProfileNav() {
                         <br></br>
                         <div className="profileNavButtons">
                             <Link to={VideoUploadModal}>
-                                <Button style={{backgroundColor:"#2B89AD", margin: "2.5%", borderColor: "unset"}}>
+                                <Button  style={{backgroundColor:"#2B89AD", margin: "2.5%", borderColor: "unset"}}>
                                     <p>Upload</p>
                                 </Button>
                             </Link>

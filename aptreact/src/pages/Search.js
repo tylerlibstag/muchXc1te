@@ -41,20 +41,7 @@ function Search(props) {
         setTransportation(!nearTransportation)
 
     }
-    // var handleCheckBoxView = () => {
-
-    //     setView(!view)
-
-    // }
-    // var handleCheckBoxGrocery = () => {
-
-    //     setGrocery(!nearGrocery)
-    // }
-    // var handleCheckBoxTransport = () => {
-
-    //     setTransportation(!nearTransportation)
-
-    // }
+ 
 
 
 

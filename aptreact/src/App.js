@@ -7,6 +7,7 @@ import Search from "./pages/Search";
 import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
 import About from "./pages/About";
+import Saved from "./pages/Saved";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/Search" component={Search} />
           <Route exact path="/Profile" component={Profile} />
           <Route exact path="/About" component={About} />
+          <Route exact path="/Saved" component={Saved} />
           <Route component={NoMatch} />
         </Switch>
       </div>
