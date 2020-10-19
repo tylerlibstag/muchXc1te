@@ -13,7 +13,7 @@ function FeedNav() {
             <nav className="Nav">
                 <div className="row">
                     <div className="col-2">
-                        <a href="/">Home</a>
+                        <a href="/Newsfeed">Home</a>
                     </div>
                     <div className="col-6"></div>
                     <div className="col-4">
@@ -22,7 +22,6 @@ function FeedNav() {
                         </LoginButton>
                         <VideoUploadModal show={show} setShow={setShow} />
                         <a href="/">Logout</a>
-                        {/* This needs to include logout auths for both twitter and passport */}
                     </div>
                 </div>
             </nav>
