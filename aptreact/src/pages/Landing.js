@@ -3,6 +3,7 @@ import "../components/Landing/Landing.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import LandingNav from "../components/Navs/LandingNav"
 import HeaderHero from "../components/Images/HeaderHero.png"
+import Footer from "../components/Footer/Footer"
 
 function Landing () {
     return (
@@ -19,6 +20,7 @@ function Landing () {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }
