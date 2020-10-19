@@ -17,7 +17,7 @@ import {
 
 
 const VideoUploadForm = () => {
-    const [file, setFile] = useState("");
+    const [url, setUrl] = useState("");
     const [screenName, setScreenName] = useState("");
     const [description, setDescription] = useState("");
     const [address1, setAddress1] = useState("");
@@ -38,7 +38,7 @@ const VideoUploadForm = () => {
         e.preventDefault();
 
         const videoData = {
-            file,
+            url,
             screenName,
             description,
             address1,
@@ -57,21 +57,23 @@ const VideoUploadForm = () => {
         };
         instance
             .post("http://localhost:9000/api/videoroute/upload3", {
-                mode: 'no-cors',
-                method: "POST",
+                //mode: 'no-cors',
+                //method: "POST",
                 headers: {
-                    "Content-Type": "multipart/form-data",
+                    "Content-Type": "video/mp4",
                     "Accept": "application/json",
-                    "type": "formData"
+                    "type": "form-data",
+                    "Accept-Encoding": "gzip, deflate, br",
+                    "Connection": "keep-alive"
                 },
-                body: videoData
+                Body: videoData
             })
             .then(res => {
                 console.log("response: ", res);
             })
             .catch(err => {
                 console.log(err);
-                console.log(file)
+                console.log("File1 ", url)
                 console.log(err.response);
             });
     };
@@ -85,12 +87,12 @@ const VideoUploadForm = () => {
                     </Form.Label>
                     <Col xs="10" sm="11">
                         <Form.Control
-                            type="file"
+                            type="File"
                             name="file"
                             placeholder="choose file"
                             onChange={e => {
-                                setFile(e.target.value);
-                                console.log(file);
+                                setUrl(e.target.value);
+                                console.log("File2: ", url);
                             }}
                             required
                         />

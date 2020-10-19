@@ -1,73 +1,106 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+import { Modal, Form, Col, Row } from "react-bootstrap";
+import SignUpHero from "../Images/SignUpHero.png";
+import "./VideoUploadModal.css";
+import Axios from "axios";
 
 
-class VideoUploadModal extends Component {
+import {
+    PaddedContainer,
+    EmailSymbol,
+    PasswordSymbol,
+    ResponsiveHeader4,
+    MutedSpan,
+    VerticalCenterWrapper,
+    SubmitButton as SubmitButton
+} from "./style";
 
-    // API Endpoints
-    custom_file_upload_url = `http://localhost:9000/api/videoroute/upload3`;
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            image_file: null,
-            image_preview: "",
-        }
-    }
+function VideoUploadForm() {
+    const [file, setFile] = useState();
+    const [screenName, setScreenName] = useState("");
+    const [description, setDescription] = useState("");
+    const [address1, setAddress1] = useState("");
+    const [address2, setAddress2] = useState("");
+    const [city, setCity] = useState("");
+    const [state, setState] = useState("");
+    const [zip, setZip] = useState("");
+    const [bedrooms, setBedrooms] = useState("");
+    const [bathrooms, setBathrooms] = useState("");
+    const [sqrfeet, setSqrfeet] = useState("");
+    const [view, setView] = useState("no");
+    const [nearpark, setNearpark] = useState("no");
+    const [neartransportation, setNeartransportation] = useState("no");
+    const [neargrocery, setNeargrocery] = useState("no");
 
-    // Image Preview Handler
-    handImagePreview = (e) => {
-        let image_as_base64 = URL.createObjectURL(e.target.files[0])
-        let image_as_files = e.target.files[0];
+    const send = event => {
+        event.preventDefault();
 
-        this.setState({
-            image_preview: image_as_base64,
-            image_file: image_as_files,
-        })
-    }
 
-    //image file submit handler
-    handleSubmitFile = () => {
-        if (this.state.image_file !== null) {
-            let formData = new FormData();
-            formData.append('customFile', this.state.image_file);
-            // the image field name should be similar to your api endpoihnt field name
-            // in my case here the field name is customFile
+        const data = new FormData();
+        data.append("file", file);
+        data.append("screenName", screenName);
 
-            axios.post(
-                this.custom_file_upload_url,
-                formData,
-                {
-                    headers: {
-                        "Content-type": "multipart/form-data",
-                    },
-                }
-            )
-                .then(res => {
-                    console.log(`Success` + res.data);
-                })
-                .catch(err => {
-                    console.log(err);
-                })
-        }
-    }
+        Axios.post("http://localhost:9000/api/videoroute/upload3", data)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
 
-    render() {
-        return (
-            <div>
-                <img src={this.state.image_preview} alt="image preview" />
-                <input
-                    type="file"
-                    key="file"
-                    name="file"
-                    onChange={this.handleImagePreview}
-                />
-                <label> upload file</label>
-                <input type="submit" onClick={this.handleSubmitFile} value="submit" />
-            </div>
+    };
 
-        )
-    }
-
+    return (
+        <div className="vid">
+            <header className="vid-header">
+                <form action="#">
+                    <div className="flex">
+                        <label htmlFor="screenName">Screen Name</label>
+                        <input
+                            type="text"
+                            id="screenName"
+                            onChange={event => {
+                                const { value } = event.target;
+                                setScreenName(value);
+                            }}
+                        />
+                    </div>
+                    <div className="flex">
+                        <label htmlFor="file">File</label>
+                        <input
+                            type="file"
+                            id="file"
+                            accept=".mp4"
+                            onChange={event => {
+                                const file = event.target.files[0];
+                                setFile(file);
+                            }}
+                        />
+                    </div>
+                </form>
+                <button onClick={send}>Send</button>
+            </header>
+        </div>
+    );
 }
+const VideoUploadModal = props => {
+    return (
+        <Modal style={{ opacity: 1 }} show={props.show} onHide={() => props.setShow(false)}>
+            <Modal.Header closeButton>
+                <Modal.Title>Upload a Video
+                    <div className="container">
+                        <img src={SignUpHero} id="SignUpHero" alt="A skater, a dog walker in heels, and two phone users walking out of a large phone." />
+                    </div>
+                </Modal.Title>
+
+            </Modal.Header>
+            <PaddedContainer>
+                <ResponsiveHeader4>Fill out the following</ResponsiveHeader4>
+                <br />
+                <VideoUploadForm />
+                <Row style={{ borderBottom: "1px solid #dee2e6" }} />
+
+                <br />
+            </PaddedContainer>
+        </Modal>
+    );
+};
+
 export default VideoUploadModal;

@@ -1,0 +1,22 @@
+input {
+    font-size: 16px;
+    padding: 5px;
+    margin: 10px;
+  }
+  
+  label {
+    font-size: 18px;
+    width: 100px;
+    text-align: left;
+  }
+  
+  .flex {
+    display: flex;
+    align-items: center;
+  }
+  
+  button {
+    padding: 5px;
+    width: 100px;
+    border-radius: 2px;
+  }

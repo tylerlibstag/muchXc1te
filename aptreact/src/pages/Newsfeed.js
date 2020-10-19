@@ -1,31 +1,31 @@
 import React from "react";
-import "../components/Newsfeed/Newsfeed.css"
-import 'bootstrap/dist/css/bootstrap.css';
+import "../components/Newsfeed/Newsfeed.css";
+import "bootstrap/dist/css/bootstrap.css";
 import FeedNav from "../components/Navs/FeedNav";
 import Main from "../components/Newsfeed/Main";
 import SideNav from "../components/Navs/SideNav";
+import ProfileNav from "../components/Navs/ProfileNav"
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import "../../src/index.css";
+import Footer from "../components/Footer/Footer";
 
 
 function Newsfeed() {
     return (
-        <div className="newsfeed">
-            <FeedNav />
-            <Container fluid>
+            <Container className="newsfeed" fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
+                <FeedNav fluid style={{ paddingLeft: 0, paddingRight: 0 }}/>
                 <Row>
-                    <Col xs={1}><SideNav /></Col>
-                    <Col xs={10}> <Main /></Col>
-                    <Col xs={1}>Here's the Side Nav.....</Col>
-
+                    <Col xs={2}><SideNav /></Col>
+                    <Col xs={7}><Main /></Col>
+                    <Col className="profileCol" xs={3}><ProfileNav /></Col>
                 </Row>
             </Container>
-        </div>
 
-        // Take inspiration from TIKTOK
-        // Another (right) side component could be added here as well
-    );
+    // Take inspiration from TIKTOK
+    // Another (right) side component could be added here as well
+  );
 }
 
 export default Newsfeed;

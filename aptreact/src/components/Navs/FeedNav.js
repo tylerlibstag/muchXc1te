@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Nav.css";
 import 'bootstrap/dist/css/bootstrap.css';
-import VideoUploadModal from "../VideoUploadModal/VideoUploadModal";
+import SignUpLoginModal from "../SignUpLoginModal/SignUpLoginModal";
 import { LoginButton } from "../Landing/style";
 
 function FeedNav() {
@@ -15,12 +15,12 @@ function FeedNav() {
                     <div className="col-2">
                         <a href="/Newsfeed">Home</a>
                     </div>
-                    <div className="col-6"></div>
-                    <div className="col-4">
+                    <div className="col-7"></div>
+                    <div className="col-3" >
                         <LoginButton size="lg" onClick={() => setShow(true)}>
-                            Upload Video
+                            Login
                         </LoginButton>
-                        <VideoUploadModal show={show} setShow={setShow} />
+                        <SignUpLoginModal show={show} setShow={setShow} />
                         <a href="/">Logout</a>
                     </div>
                 </div>
