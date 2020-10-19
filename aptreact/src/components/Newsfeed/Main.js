@@ -37,7 +37,7 @@ function Main() {
           )
         )}
       </div>
-      <div><h3>TExt?????</h3></div>
+      
     </div>
   );
 }

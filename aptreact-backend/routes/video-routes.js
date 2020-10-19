@@ -293,6 +293,18 @@ videoRouter.get("/v2/posts/:category/:search/", (req, res) => {
 });
 
 
+videoRouter.get('/v2/posts/:neartransportation',(req,res)=>{
+    console.log('nearest park',res);
+    console.log(req.params.nearpark)
+    console.log(req.params.view, "this view")
+    Videos.find({neartransportation:req.params.neartransportation},(err,data)=>{
+        res.json(data)
+    });
+})
+
+//,{neartransportation:req.params.neartransportation},{view:req.params.view},{neargrocery:req.params.neargrocery}
+///:neartransportation/:view/:neargrocery/
+
 videoRouter.post("/upload4", multer.single("url"), (req, res, next) => {
     var {
         url,
