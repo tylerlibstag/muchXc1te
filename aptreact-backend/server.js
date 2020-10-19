@@ -8,8 +8,8 @@ import mongoose from "mongoose";
 import keys from "./config/keys.js";
 import passport from "passport";
 import cors from "cors";
-import twitterPassportSetup from "./config/twitterPassportSetup.js";
-import localPassportSetup from "./config/localUserPassportSetup.js";
+import twitterPassportSetup from "./passport/twitterPassportSetup.js";
+import localPassportSetup from "./passport/localUserPassportSetup.js";
 import session from "express-session";
 import authRoutes from "./routes/auth-routes.js";
 import cookieParser from "cookie-parser";
@@ -96,7 +96,6 @@ app.use((req, res, next) => {
 app.get("/", (req, res) => {
   res.render("form.pug");
 });
-///////////////
 
 app.use("/api/videoRoute", videoRoutes);
 
@@ -112,15 +111,15 @@ app.use(
 
 // set up auth routes
 // twitter
-app.use("/auth", authRoutes);
+// app.use("/auth", authRoutes);
 
-const authCheck = (req, res, next) => {
-  // console.log(`This is the res for the authCheck in sever.js:${res}`);
-  // console.log(`This is the req for the authCheck in sever.js:${req}`);
-  next();
-};
+// const authCheck = (req, res, next) => {
+//   // console.log(`This is the res for the authCheck in sever.js:${res}`);
+//   // console.log(`This is the req for the authCheck in sever.js:${req}`);
+//   next();
+// };
 
-console.log(authCheck);
+// console.log(authCheck);
 
 // local
 app.use("/api/auth", authRoutes);
@@ -130,14 +129,14 @@ app.use("/api/auth", authRoutes);
 // if user is already logged in, send the profile response,
 // otherwise, send a 401 response that the user is not authenticated
 // authCheck before navigating to home page
-app.get("/Newsfeed", authCheck, (req, res) => {
-  res.status(200).json({
-    authenticated: true,
-    message: "user successfully authenticated",
-    user: req.user,
-    cookies: req.cookies,
-  });
-});
+// app.get("/Newsfeed", authCheck, (req, res) => {
+//   res.status(200).json({
+//     authenticated: true,
+//     message: "user successfully authenticated",
+//     user: req.user,
+//     cookies: req.cookies,
+//   });
+// });
 
 // ********* end of Auth Routes *****************
 
