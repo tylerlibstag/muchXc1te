@@ -3,4 +3,10 @@
 .profileCol {
   margin: auto;
   text-align: center;
+};
+
+/* Search Page Styles */
+
+.mainSearchContainer {
+  margin: 200px 0px 0px 0px;
 }
