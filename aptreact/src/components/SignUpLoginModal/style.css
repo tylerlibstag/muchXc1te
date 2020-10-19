@@ -1,0 +1,25 @@
+input {
+    font-size: 16px;
+    padding: 15px;
+  }
+  
+  label {
+    font-size: 18px;
+    width: 100px;
+    text-align: center;
+  }
+  
+  .flex {
+    display: flex;
+    align-items: center;
+  }
+
+  #inputStyleEmail {
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  #inputStylePassword {
+    margin-bottom: 30px;
+    width: 100%;
+  }

@@ -22,11 +22,11 @@ function Saved() {
                     <Col xs={7}> <div className="main">
                 <div className="main_videos">
 
-                    {
+                    {/* {
                         userSearch.results.map(({ url }) => (
                             <Video url={url} />
                         ))
-                    }
+                    } */}
                 </div>
             </div>
                      

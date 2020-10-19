@@ -5,6 +5,8 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import DelegatedAuthList from "../DelegatedAuthList/DelegatedAuthList";
 import SignUpHero from "../Images/SignUpHero.png";
 import "../Images/imageStyle.css";
+import "./style.js";
+import "./style.css";
 
 import {
     PaddedContainer,
@@ -15,67 +17,29 @@ import {
     SubmitButton as SubmitButton
 } from "./style";
 
-// return (
-//     <div className="vid">
-//         <header className="vid-header">
-//             <form action="#">
-//                 <div className="flex">
-//                     <label htmlFor="screenName">Screen Name</label>
-//                     <input
-//                         type="text"
-//                         id="screenName"
-//                         onChange={event => {
-//                             const { value } = event.target;
-//                             setScreenName(value);
-//                         }}
-//                     />
-//                 </div>
-//                 <div className="flex">
-//                     <label htmlFor="file">File</label>
-//                     <input
-//                         type="file"
-//                         id="file"
-//                         accept=".mp4"
-//                         onChange={event => {
-//                             const file = event.target.files[0];
-//                             setFile(file);
-//                         }}
-//                     />
-//                 </div>
-//             </form>
-//             <button onClick={send}>Send</button>
-//         </header>
-//     </div>
-// );
-
 
 const SignUpLoginForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    // const [name, setName] = useState("");
+    const [isAuthenticated, setisAuthenticated] = useState(false);
 
-    const userData = {
-        email: email,
-        password: password,
-        // name: name
-    };
 
-    const [state, setState] = useState({
-        id: "",
-        error: null,
-        isAuthenticated: false,
-        changeState: (name, value) => setState({ ...state, [name]: value })
-    });
+    // const [state, setState] = useState({
+    //     id: "",
+    //     error: null,
+    //     isAuthenticated: false,
+    //     changeState: (name, value) => setState({ ...state, [name]: value })
+    // });
 
-    const onSubmit = e => {
-        e.preventDefault();
+    const onSubmit = event => {
+        event.preventDefault();
 
         // handles a user signing up/logging in and posting user data to DB
-        const userData = {
+        const userData = new FormData({
             email: email,
             password: password,
-            // name: name
-        };
+            isAuthenticated: isAuthenticated
+        });
 
         // login/sign up a user
         axios
@@ -100,7 +64,7 @@ const SignUpLoginForm = () => {
             });
     };
 
-     // should run after a user presses "Submit"
+    // should run after a user presses "Submit"
     //  const checkAuthentication = async () => {
     //     console.log("checkAuth() is running");
     //     await axios
@@ -123,77 +87,48 @@ const SignUpLoginForm = () => {
     //         });
     // };
 
-    useEffect(() => {
-        // checkAuthentication();
-    }, [state.isAuthenticated])
+    // useEffect(() => {
+    //  checkAuthentication();
+    // }, [state.isAuthenticated])
 
-   
+
     return (
-        <Form onSubmit={onSubmit}>
-            {/* <Form.Group>
-                <Row>
-                    <Form.Label column xs="2" sm="1">
-                        {/* Name Icon */}
-            {/* </Form.Label>
-                    <Col xs="10" sm="11"> */}
-            {/* <Form.Control
-                            type="input"
-                            name="name"
-                            placeholder="What would you like us to call you?"
-                            onChange={e => {
-                                setName(e.target.value);
-                                // console.log(name);
-                            }}
-                            required
-                        /> */}
-            {/* </Col>
-                </Row>
-            </Form.Group> */}
-            <Form.Group controlId="formBasicEmail">
-                <Row>
-                    <Form.Label column xs="2" sm="1">
-                        <EmailSymbol />
-                    </Form.Label>
-                    <Col xs="10" sm="11">
-                        <Form.Control
-                            type="email"
-                            name="email"
-                            placeholder="Enter email"
-                            onChange={e => {
-                                setEmail(e.target.value);
-                                // console.log(email);
-                            }}
-                            required
-                        />
-                        <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
-                    </Col>
-                </Row>
-            </Form.Group>
-            <Form.Group controlId="formBasicPassword">
-                <Row>
-                    <Form.Label column xs="2" sm="1">
+        <div>
+            <form action="#">
+                <div className="flex" id="inputStyleEmail">
+                <label>
+                    <EmailSymbol />
+                </label>
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter email"
+                        onChange={e => {
+                            setEmail(e.target.value);
+                            // console.log(email);
+                        }}
+                        required
+                    />
+                </div>
+                <div className="flex" id="inputStylePassword">
+                    <label>
                         <PasswordSymbol />
-                    </Form.Label>
-                    <Col xs="10" sm="11">
-                        <Form.Control
-                            type="password"
-                            name="password"
-                            placeholder="Password"
-                            onChange={e => setPassword(e.target.value)}
-                        />
-                    </Col>
-                </Row>
-            </Form.Group>
-            <VerticalCenterWrapper>
-                <SubmitButton type="submit">
-                {/* // onClick={checkAuthentication}> */}
-                //     {/* Once the User presses submit, checkAuth() should run and then User 
-                //     should be redirect to Newsfeed page */}
-                //      {/* <Route><Redirect to="/Newsfeed" /></Route>   */}
-                //      {/* <Route><Redirect to="/" /></Route> */}
-                Submit</SubmitButton>
-            </VerticalCenterWrapper>
-        </Form>
+                    </label>
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        onChange={e => setPassword(e.target.value)}
+                    />
+                </div>
+            </form>
+            {/* Once the User presses submit, checkAuth() should run and then User 
+                should be redirect to Newsfeed page */}
+            <SubmitButton type="submit">Submit</SubmitButton>
+            {/* // onClick={checkAuthentication}> */}
+            {/* <Route><Redirect to="/Newsfeed" /></Route>   */}
+            {/* <Route><Redirect to="/" /></Route> */}
+        </div>
     )
 
 };
@@ -212,7 +147,7 @@ const SignupLoginModal = props => {
                 <ResponsiveHeader4>With email:</ResponsiveHeader4>
                 <br />
                 <SignUpLoginForm />
-                <Row style={{ borderBottom: "1px solid #dee2e6" }} />
+                <Row style={{ marginTop: "20px", borderBottom: "1px solid #dee2e6" }} />
                 <ResponsiveHeader4>Or with your favorite third party provider:</ResponsiveHeader4>
                 <br />
                 <DelegatedAuthList />
