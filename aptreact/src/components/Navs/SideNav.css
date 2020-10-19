@@ -1,8 +1,8 @@
 /* Newsfeed STYLES */
 
 .sideNav {
-    background-color: grey;
-    opacity: 45%;
+    /* background-color: white; */
+    /* opacity: 45%; */
     width: 100%;
     height: 100%;
     border: 0;
@@ -21,9 +21,19 @@ a:visited {
     color:black
 }
 
-.fas{
-    color:white;
+.fas {
+    color: #1E607A;
     padding-left: 60px;
     padding-top: 75px;
 }
+
+.vl2 {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    /* -ms-transform: translateY(-50%); */
+    transform: translateY(-50%);
+    border-left: 1px solid lightgray;
+    height: 575px;
+};
 

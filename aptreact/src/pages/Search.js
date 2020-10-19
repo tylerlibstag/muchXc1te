@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from "../utils/axios";
-import "../components/Search/Search.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import FeedNav from "../components/Navs/FeedNav";
 import SideNav from "../components/Navs/SideNav";
-
-import "../components/Newsfeed/Main.css"
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import ProfileNav from "../components/Navs/ProfileNav"
 import Video from "../components/Newsfeed/Video";
-
-import Footer from "../components/Footer/Footer"
+import Footer from "../components/Footer/Footer";
 
 
 var vidData = "";
@@ -162,15 +162,15 @@ function Search(props) {
     //nearGrocery, view, nearTransportation
 
     return (
-        <div>
-            <div>
-                <FeedNav />
-                <div>
-                    <SideNav />
-                </div>
-
-          
-            </div>
+    
+        <Container fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
+        
+                <FeedNav fluid style={{ paddingLeft: 0, paddingRight: 0 }}/>
+                
+                <Row>
+                <Col xs={2}><SideNav /></Col>
+                
+                <Col className="mainSearchContainer" xs={7}>
             <form id="lang" onChange={handleCategory}>
                 <option value="zipcode">Zipcode</option> 
                 <input onChange={handleTyping} />
@@ -247,8 +247,12 @@ function Search(props) {
                     }
                 </div>
             </div>
-
-        </div>
+            </Col>
+            <Col className="profileCol" xs={3}><ProfileNav /></Col>
+        
+        </Row>
+        </Container>
+        
         //Search Bar capabilities:
         // FORM: with preselected NEIGHBORHOOD BUTTONS
 
