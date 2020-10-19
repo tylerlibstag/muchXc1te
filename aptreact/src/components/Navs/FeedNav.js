@@ -17,7 +17,6 @@ function FeedNav() {
             <nav className="Nav">
                 <div className="row">
                     <div className="col-2">
-                        {/* <img src={Boroughd} href="/" id="HeaderHero" alt="boroughd"></img> */}
                         <Link to="/">{boroughd}</Link>
                     </div>
                     <div className="col-7"></div>
@@ -27,7 +26,6 @@ function FeedNav() {
                         </LoginButton>
                         <SignUpLoginModal show={show} setShow={setShow} />
                         <a href="/">Logout</a>
-                        {/* This needs to include logout auths for both twitter and passport */}
                     </div>
                 </div>
             </nav>

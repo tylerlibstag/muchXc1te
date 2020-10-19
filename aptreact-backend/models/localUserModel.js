@@ -3,8 +3,12 @@
 
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
+const ObjectId = Schema.ObjectId;
 
 const localUserSchema = new Schema({
+    userID: {
+        type: ObjectId
+    },
     username: {
         type: String
     },
@@ -13,10 +17,6 @@ const localUserSchema = new Schema({
         type: String,
         required: true,
         unique: true
-    },
-    email_is_verified: {
-        type: Boolean,
-        default: false
     },
     password: {
         type: String
@@ -38,6 +38,13 @@ const localUserSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    user_name: {
+        type: String
+    },
+    // an array of strings
+    saved_videos: [{
+        type: String
+    }]
 });
 
 const LocalUser = mongoose.model("localusers", localUserSchema);
