@@ -4,20 +4,21 @@ import 'bootstrap/dist/css/bootstrap.css';
 import FeedNav from "../components/Navs/FeedNav";
 import Main from "../components/Newsfeed/Main";
 import SideNav from "../components/Navs/SideNav";
+import ProfileNav from "../components/Navs/ProfileNav"
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
+import "../../src/index.css";
 
 
 function Newsfeed() {
     return (
             <Container className="newsfeed" fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
-                <FeedNav />
+                <FeedNav fluid style={{ paddingLeft: 0, paddingRight: 0 }}/>
                 <Row>
                     <Col xs={2}><SideNav /></Col>
-                    <Col xs={8}> <Main /></Col>
-                    <Col xs={2}>Here's the Side Nav.....</Col>
+                    <Col xs={7}><Main /></Col>
+                    <Col className="profileCol" xs={3}><ProfileNav /></Col>
                 </Row>
             </Container>
 

@@ -1,8 +1,8 @@
 import React from "react";
-import "../components/Profile/Profile.css";
+// import "../components/Saved/Profile.css";
 import FeedNav from "../components/Navs/FeedNav";
 import SideNav from "../components/Navs/SideNav"
-import Saved from "../components/Profile/Saved";
+import Saved from "../components/Saved/Saved";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -15,13 +15,13 @@ function Profile() {
         <Container fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
             <FeedNav />
             <Row>
-                <Col xs={1}>
+                <Col xs={2}>
                     <SideNav />
                 </Col>
-                <Col xs={10}>
+                <Col xs={7}>
                     <Saved />
                 </Col>
-                <Col xs={1}>Right Nav Goes Here</Col>
+                <Col xs={3}>Right Nav Goes Here</Col>
             </Row>
         </Container>
     )
