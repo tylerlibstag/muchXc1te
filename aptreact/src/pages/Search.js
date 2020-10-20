@@ -8,7 +8,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ProfileNav from "../components/Navs/ProfileNav"
 import Video from "../components/Newsfeed/Video";
-import Footer from "../components/Footer/Footer";
 import { LoginButton } from "../components/Landing/style";
 import { Link } from 'react-router-dom';
 

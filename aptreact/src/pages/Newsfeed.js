@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom';
 import Main from "../components/Newsfeed/Main";
 import SideNav from "../components/Navs/SideNav";
 import ProfileNav from "../components/Navs/ProfileNav"
-import Footer from "../components/Footer/Footer";
 
 //Images
 import HeaderBackground from "../components/Images/HeaderBackground.png";
@@ -25,27 +24,26 @@ const boroughd = <img src={Boroughd} id="HeaderHero" alt="boroughd" style={{ mar
 
 function Newsfeed() {
     return (
-
-        <Container className="newsfeed" fluid style={{ paddingLeft: 0, paddingRight: 0 }} id="Hero" style={{ backgroundImage: `url(${HeaderBackground})` }}>
-            <div className="row">
-                <div className="col-2">
-                    <Link to="/">{boroughd}</Link>
+        <div>
+            <Container className="newsfeed" fluid style={{ paddingLeft: 0, paddingRight: 0 }} id="Hero" style={{ backgroundImage: `url(${HeaderBackground})` }}>
+                <div className="row">
+                    <div className="col-2">
+                        <Link to="/">{boroughd}</Link>
+                    </div>
+                    <div className="col-8"></div>
+                    <div className="col-2">
+                        <LoginButton size="lg"> <a href="/">
+                            Logout</a>
+                        </LoginButton>
+                    </div>
                 </div>
-                <div className="col-8"></div>
-                <div className="col-2">
-                    <LoginButton size="lg"> <a href="/">
-                        Logout</a>
-                    </LoginButton>
-                </div>
-            </div>
-            <Row id="topSpacer">
-                <Col xs={2}><SideNav /></Col>
-                <Col xs={7}><Main /></Col>
-                <Col className="profileCol" xs={3}><ProfileNav /></Col>
-            </Row>
-        </Container>
-        // Take inspiration from TIKTOK
-        // Another (right) side component could be added here as well
+                <Row id="topSpacer">
+                    <Col xs={2}><SideNav /></Col>
+                    <Col xs={7}><Main /></Col>
+                    <Col className="profileCol" xs={3}><ProfileNav /></Col>
+                </Row>
+            </Container>
+        </div>
     );
 }
 

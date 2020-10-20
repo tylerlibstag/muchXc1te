@@ -33,6 +33,13 @@ h3 {
     font-family: sans-serif;
 }
 
+#HeaderText2 {
+    text-align: left;
+    color: aliceblue;
+    letter-spacing: 3px !important;
+    font-family: sans-serif;
+}
+
 #AptHero {
     max-width: 120%;
     margin-left: -5%;
