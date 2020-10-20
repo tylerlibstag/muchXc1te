@@ -3,7 +3,6 @@ import { Modal, Form, Col, Row } from "react-bootstrap";
 import axios from "axios";
 import { Route, Switch, Redirect } from "react-router-dom";
 import DelegatedAuthList from "../DelegatedAuthList/DelegatedAuthList";
-import SignUpHero from "../Images/SignUpHero.png";
 import "../Images/imageStyle.css";
 import "./style.js";
 import "./style.css";
@@ -17,88 +16,68 @@ import {
     SubmitButton as SubmitButton
 } from "./style";
 
-
 const SignUpLoginForm = () => {
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [isAuthenticated, setisAuthenticated] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-
-    // const [state, setState] = useState({
-    //     id: "",
-    //     error: null,
-    //     isAuthenticated: false,
-    //     changeState: (name, value) => setState({ ...state, [name]: value })
-    // });
-
-    const onSubmit = event => {
-        event.preventDefault();
-
-        // handles a user signing up/logging in and posting user data to DB
-        const userData = new FormData({
-            email: email,
-            password: password,
-            isAuthenticated: isAuthenticated
-        });
-
-        // login/sign up a user
-        axios
-            .post("/api/auth/register_login", userData)
-            .then(res => {
-                console.log(res);
-            })
-            .catch(err => {
-                console.log(err);
-                console.log(err.response);
-            });
-
-        // get user data and log them in
-        axios
-            .get("/api/auth/users", userData)
-            .then(res => {
-                console.log(res);
-            })
-            .catch(err => {
-                console.log(err);
-                console.log(err.response);
-            });
+    const userData = {
+        email: email,
+        password: password,
+        isAuthenticated: isAuthenticated
     };
 
-    // should run after a user presses "Submit"
-    //  const checkAuthentication = async () => {
-    //     console.log("checkAuth() is running");
-    //     await axios
-    //         .get("/api/auth/register_login", userData)
-    //         .then(async res => {
-    //             // setLoading(true);
-    //             if (res.data.success === true) {
-    //                 console.log("user was authenticated");
-    //                 setState({
-    //                     ...state,
-    //                     id: res.data.user.id,
-    //                     isAuthenticated: true,
-    //                 });
-    //                 // setLoading(false);
-    //             }
-    //             else {
-    //                 console.log(res) 
-    //             }
-    //             // setLoading(false)
-    //         });
-    // };
+     // login/sign up a user
+     axios
+     .post("/api/auth/register_login", userData)
+     .then(res => {
+         console.log(res);
+     })
+     .catch(err => {
+         console.log(err);
+         console.log(err.response);
+     });
 
-    // useEffect(() => {
-    //  checkAuthentication();
-    // }, [state.isAuthenticated])
+ // get user data and log them in
+ axios
+     .get("/api/auth/users", userData)
+     .then(res => {
+         console.log(res);
+     })
+     .catch(err => {
+         console.log(err);
+         console.log(err.response);
+     });
+
+    const handleSubmit = event => {
+        event.preventDefault();
+
+    };
+
+
+    useEffect(() => {
+        axios.get("/api/auth/register_login", userData)
+            .then((res) => {
+                setIsAuthenticated(res.data.success);
+            })
+            .catch((res) => {
+                    console.log("user is not authenticated");
+                    console.log("=========================")
+                    console.log(res)
+                setIsAuthenticated(false);
+            });
+    }, []);
+
 
 
     return (
         <div>
-            <form action="#">
+            <form onSubmit={handleSubmit}>
                 <div className="flex" id="inputStyleEmail">
-                <label>
-                    <EmailSymbol />
-                </label>
+                    <label htmlFor="email">
+                        <EmailSymbol />
+                    </label>
                     <input
                         type="email"
                         name="email"
@@ -111,23 +90,22 @@ const SignUpLoginForm = () => {
                     />
                 </div>
                 <div className="flex" id="inputStylePassword">
-                    <label>
+                    <label htmlFor="password">
                         <PasswordSymbol />
                     </label>
                     <input
                         type="password"
                         name="password"
                         placeholder="Password"
-                        onChange={e => setPassword(e.target.value)}
+                        onChange={e => {
+                            setPassword(e.target.value)
+                        }}
                     />
                 </div>
             </form>
             {/* Once the User presses submit, checkAuth() should run and then User 
                 should be redirect to Newsfeed page */}
             <SubmitButton type="submit">Submit</SubmitButton>
-            {/* // onClick={checkAuthentication}> */}
-            {/* <Route><Redirect to="/Newsfeed" /></Route>   */}
-            {/* <Route><Redirect to="/" /></Route> */}
         </div>
     )
 
@@ -139,7 +117,6 @@ const SignupLoginModal = props => {
             <Modal.Header closeButton>
                 <Modal.Title>Sign up / Login
                                     <div className="container">
-                        <img src={SignUpHero} id="SignUpHero" alt="A skater, a dog walker in heels, and two phone users walking out of a large phone." />
                     </div>
                 </Modal.Title>
             </Modal.Header>
