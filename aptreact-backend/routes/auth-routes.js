@@ -35,6 +35,34 @@ router.get("/users/:id", (req, res) => {
 })
 
 
+// middleware isn't working
+// router.get("/api/users", isAuthenticated, (req, res) => {
+//   LocalUser.findAll({}).then(data => {
+//     res.json(data);
+//   });
+// });
+
+// router.post(("/addSaved"), (req, res) => {
+//   console.log('time to save~!!!', req.body)
+//   const savedVideos = req.body;
+  
+//   LocalUser.create(   
+//       { url: savedVideos.url}, 
+
+//       function (err, result) {
+//           if (err) {
+//               res.send(err);
+//           } else {
+//               res.send(result);
+//           }
+//       }
+//   );
+  
+
+  // save to DB!!!!! look  up how to push something to array on LocalUser $push
+// });
+
+
 // get all users in DB
 router.get("/users", (req, res) => {
   LocalUser.find({}).then(data => {

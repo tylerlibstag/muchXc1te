@@ -18,7 +18,8 @@ function VideoSidebar({ url, likes, shares, messages, save, screenName }) {
   const [liked, setLiked] = useState(false);
   const [saved, setSaved] = useState({ 
     results: []
-});
+}); 
+
 
   return (
     <div className="videoSidebar">
@@ -48,10 +49,12 @@ function VideoSidebar({ url, likes, shares, messages, save, screenName }) {
 
 
 var handleClick = (url) => {
-  console.log('this is the url for the vid u wanna save!!!', url)
-   axios.post(`http://localhost:9000/api/auth/addSaved`,{url: url},{screenName: screenName});
-}
+ 
 
+  console.log('this is the url for the vid u wanna save!!!', screenName)
+   axios.post(`http://localhost:9000/api/addSaved/v1/vid/`,{url: url})
+}
+//,{screenName: screenName}
 console.log('my conteext!!', MyContext)
 
 
@@ -73,7 +76,7 @@ console.log('my conteext!!', MyContext)
           </div>
           
           <div className="videoSidebar_button">
-            <SaveIcon onClick={() => {handleClick(url,screenName)}} fontSize="large" />
+            <SaveIcon onClick={() => {handleClick(url)}} fontSize="large" />
             <p>{save}</p>
           </div>
 

@@ -11,6 +11,9 @@ import cors from "cors";
 import localPassportSetup from "./passport/localUserPassportSetup.js";
 import session from "express-session";
 import authRoutes from "./routes/auth-routes.js";
+import savedVideosR from "./routes/savedVideo-routes.js"
+
+
 import cookieParser from "cookie-parser";
 const MongoStore = require("connect-mongo")(session);
 
@@ -111,6 +114,7 @@ app.use(
 // set up auth routes
 // local
 app.use("/api/auth", authRoutes);
+app.use("/api/addSaved", savedVideosR);
 
 
 // ********* end of Auth Routes *****************
