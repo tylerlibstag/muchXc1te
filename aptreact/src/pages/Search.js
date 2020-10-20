@@ -200,18 +200,29 @@ function Search(props) {
                     </select>
                 </div>
             </div>
-
-            <input onChange={handleTyping}/>
-            <button onClick={handleClick}>Search</button>
-            <form>
-            <select id="lang" onChange={handleCategory}>
-                  <option value="zipcode">Zipcode</option>
-                  <option value="bedrooms">bedrooms</option>
-                  <option value="bathrooms">bathrooms</option>    
-               </select>
-               </form>
-
-                    <div className="col-4 checkboxCol">       
+            
+            <div className="row">
+                <div className="col-2 dropdownRow1">
+                    <form className="selectForm">
+                        <select id="lang" onChange={handleCategory}>
+                            <option value="zipcode">Zip Code</option>
+                            <option value="bedrooms">Bedrooms</option>
+                            <option value="bathrooms">Bathrooms</option>    
+                        </select>
+                    </form>
+                </div>  
+                        <div className="col-4 dropdownRow2">
+                            <input onChange={handleTyping}/>
+                        </div>  
+                        <div className="col-2 dropdownRow3"> 
+                            <button onClick={handleClick}>Search</button>
+                        </div>     
+                    <div className="col-4"></div> 
+    
+            </div>
+                        
+                <div className="row">       
+                    <div className="checkboxCol">       
                         <label>
                             <input type="checkbox"
                                 onChange={handleCheckBox}
@@ -223,10 +234,9 @@ function Search(props) {
                             <input type="checkbox"
                                 onChange={handleCheckBox}
                             />
-                        Near Grocery Store
+                        Near Grocery
                         </label>
-                    </div>
-                    <div className="col-4 checkboxCol2">
+                    
                         <label>
                             <input type="checkbox"
                                 onChange={handleCheckBox}
@@ -240,7 +250,8 @@ function Search(props) {
                             />
                         Near Park
                         </label>
-                        
+                        </div>    
+                    
                     </div>
 
                     <div className="main">
