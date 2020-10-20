@@ -25,14 +25,13 @@ function VideoSidebar({ likes, shares, messages, saved }) {
 
         <p>{liked ? likes + 1 : likes}</p>
       </div>
-
       <div className="videoSidebar_button">
         {/* <SaveIcon fontSize="large" onClick={} /> */}
         <p>{saved}</p>
-      </div>
+      </div> */}
 
       <div className="videoSidebar_button">
-        <MessageIcon fontSize="large" />
+        <SaveIcon fontSize="large" />
         <p>{messages}</p>
       </div>
 

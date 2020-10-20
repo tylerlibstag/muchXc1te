@@ -8,7 +8,6 @@ import mongoose from "mongoose";
 import keys from "./config/keys.js";
 import passport from "passport";
 import cors from "cors";
-import twitterPassportSetup from "./passport/twitterPassportSetup.js";
 import localPassportSetup from "./passport/localUserPassportSetup.js";
 import session from "express-session";
 import authRoutes from "./routes/auth-routes.js";
@@ -110,33 +109,9 @@ app.use(
 );
 
 // set up auth routes
-// twitter
-// app.use("/auth", authRoutes);
-
-// const authCheck = (req, res, next) => {
-//   // console.log(`This is the res for the authCheck in sever.js:${res}`);
-//   // console.log(`This is the req for the authCheck in sever.js:${req}`);
-//   next();
-// };
-
-// console.log(authCheck);
-
 // local
 app.use("/api/auth", authRoutes);
 
-
-// user auth sign-in on home page
-// if user is already logged in, send the profile response,
-// otherwise, send a 401 response that the user is not authenticated
-// authCheck before navigating to home page
-// app.get("/Newsfeed", authCheck, (req, res) => {
-//   res.status(200).json({
-//     authenticated: true,
-//     message: "user successfully authenticated",
-//     user: req.user,
-//     cookies: req.cookies,
-//   });
-// });
 
 // ********* end of Auth Routes *****************
 

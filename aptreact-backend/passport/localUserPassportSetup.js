@@ -26,7 +26,7 @@ passport.use(
                             newUser
                                 .save()
                                 .then(user => {
-                                    console.log("New User added to DB!")
+                                    console.log("Passport did not find a user with a matching email so a new user added to DB!")
                                     return done(null, user);
                                 })
                                 .catch(err => {
