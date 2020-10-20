@@ -13,3 +13,81 @@ h3 {
 }
 
 /* Search STYLES */
+
+#Hero {
+    padding-top: 3%;
+    max-width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#topSpacer {
+    padding-top: 6%;
+}
+
+.cityState {
+    padding: 45px 0px 25px 0px;
+}
+
+.zipBeds option {
+    font-weight: 325;
+}
+
+.zipBeds button {
+    background-color: #1E607A;
+    color: white;
+    font-weight: 225;
+}
+
+.zipBeds button:hover {
+    background-color: #468ea8;
+    color: white;
+    font-weight: 400;
+    box-shadow: 0px 10px 15px #78a9bd;
+    transform: translateY(-1px);
+}
+
+/* .zipBeds input:hover {
+    border-color: #1E607A;
+} */
+
+.checkboxCol label {
+    padding: 25px 5px 10px 2px;
+    font-weight: 325;
+    font-size: medium;
+  }
+
+.checkboxCol2 label {
+    padding: 25px 0px 10px 15px;
+    font-weight: 325;
+    font-size: medium;
+}
+
+.main_videos2 {
+    margin: 70px 0px 0px 200px;
+    position: relative;
+    height: 600px;
+    width: 80%;
+    /* height: 60%; */
+    border-radius: 20px;
+    max-width: 350px;
+    scroll-snap-type: y mandatory;
+    overflow: scroll;
+  }
+  
+  .main_videos2::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .main_videos2 {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .profileCol2 {
+    margin: auto;
+    text-align: center;
+    padding: 0px 15px 250px 0px;
+  };

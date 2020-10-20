@@ -14,7 +14,7 @@ import SignUpLoginModal from "../components/SignUpLoginModal/SignUpLoginModal";
 import { LoginButton } from "../components/Landing/style";
 
 
-const boroughd = <img src={Boroughd} id="HeaderHero" alt="boroughd"></img>
+const boroughd = <img src={Boroughd} id="HeaderHero" alt="boroughd" style={{ marginLeft: '12%'}}></img>
 
 function Landing () {
 

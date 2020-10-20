@@ -30,6 +30,7 @@ html {
 .main_videos::-webkit-scrollbar {
   display: none;
 }
+
 .main_videos {
   -ms-overflow-style: none;
   scrollbar-width: none;
