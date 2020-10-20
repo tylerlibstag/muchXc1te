@@ -114,7 +114,7 @@ function Search(props) {
         async function fetchState() {
             let res = await axios.get("https://www.universal-tutorial.com/api/states/United States", {
                 headers: {
-                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJfZW1haWwiOiJzdXN5anVzdGljZUBnbWFpbC5jb20iLCJhcGlfdG9rZW4iOiJ3U0pKTHdzQlZDNnNkek9Zb2lMTU96bVdJR3cwTDRCV016aVU1VlEtMGo1b3g3SWVvbXljRk1MeVJ0YU5ickRad2swIn0sImV4cCI6MTYwMjg4NzYwNH0.HxguhZdLMKxXUHdDhFM9OSXsYq9j0O--LpyWNDpeEzs",
+                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJfZW1haWwiOiJzdXN5anVzdGljZUBnbWFpbC5jb20iLCJhcGlfdG9rZW4iOiJ3U0pKTHdzQlZDNnNkek9Zb2lMTU96bVdJR3cwTDRCV016aVU1VlEtMGo1b3g3SWVvbXljRk1MeVJ0YU5ickRad2swIn0sImV4cCI6MTYwMzMwODE4NH0.E_y0L32lnEOf_HoxvkpTs-oCUHroII63w-v1VeLdPa4",
                     "Accept": "application/json"
                 }
             });
@@ -126,7 +126,7 @@ function Search(props) {
         async function fetchCityFromApi(state) {
             let res = await axios.get(`https://www.universal-tutorial.com/api/cities/${state}`, {
                 headers: {
-                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJfZW1haWwiOiJzdXN5anVzdGljZUBnbWFpbC5jb20iLCJhcGlfdG9rZW4iOiJ3U0pKTHdzQlZDNnNkek9Zb2lMTU96bVdJR3cwTDRCV016aVU1VlEtMGo1b3g3SWVvbXljRk1MeVJ0YU5ickRad2swIn0sImV4cCI6MTYwMjg4NzYwNH0.HxguhZdLMKxXUHdDhFM9OSXsYq9j0O--LpyWNDpeEzs",
+                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJfZW1haWwiOiJzdXN5anVzdGljZUBnbWFpbC5jb20iLCJhcGlfdG9rZW4iOiJ3U0pKTHdzQlZDNnNkek9Zb2lMTU96bVdJR3cwTDRCV016aVU1VlEtMGo1b3g3SWVvbXljRk1MeVJ0YU5ickRad2swIn0sImV4cCI6MTYwMzMwODE4NH0.E_y0L32lnEOf_HoxvkpTs-oCUHroII63w-v1VeLdPa4",
                     "Accept": "application/json"
                 }
             });
@@ -178,7 +178,7 @@ function Search(props) {
             <div className="cityState">
                 <div class="form-group mb-2">
                     <select onChange={handleState} name="state" id="state" class="form-control" value={stateValue}>
-                        <option disabled selected>Select State</option>
+                       
                         {
                             state.map((state) => (
                                 <option value={state.state_name} key={state.state_name}>{state.state_name}</option>
@@ -188,7 +188,7 @@ function Search(props) {
                 </div>
                 <div class="form-group mb-2">
                     <select id="city" class="form-control" onChange={handleCity} value={city}>
-                        <option disabled selected>Select City</option>
+                        
                         {
                             cityFromApi.map((city) => (
                                 <option value={city.city_name} key={city.city_name}>{city.city_name}</option>
@@ -198,29 +198,17 @@ function Search(props) {
                 </div>
             </div>
 
-                <div className="row">
-                    <div className="col-6 zipBeds">
-                        <form id="lang" onChange={handleCategory}>
-                            <option value="zipcode">Zip Code:</option> 
-                            <input onChange={handleTyping} />
-                            <button onClick={handleClick}>Search</button>
-                        </form>
-                        
-                        <form id="lang" onChange={handleCategory}>
-                            <option value="bedrooms">Bedrooms:</option>
-                            <input onChange={handleTyping} />
-                            <button onClick={handleClick}>Search</button>
-                        </form>
-                            
-                        <form id="lang" onChange={handleCategory}>
-                            <option value="bathrooms">Bathrooms:</option>
-                            <input onChange={handleTyping} />
-                            <button onClick={handleClick}>Search</button>
-                        </form>
+            <input onChange={handleTyping}/>
+            <button onClick={handleClick}>Search</button>
+            <form>
+            <select id="lang" onChange={handleCategory}>
+                  <option value="zipcode">Zipcode</option>
+                  <option value="bedrooms">bedrooms</option>
+                  <option value="bathrooms">bathrooms</option>    
+               </select>
+               </form>
 
-                    </div>
-
-                    <div className="col-3 checkboxCol">       
+                    <div className="col-4 checkboxCol">       
                         <label>
                             <input type="checkbox"
                                 onChange={handleCheckBox}
@@ -235,7 +223,7 @@ function Search(props) {
                         Near Grocery Store
                         </label>
                     </div>
-                    <div className="col-3 checkboxCol2">
+                    <div className="col-4 checkboxCol2">
                         <label>
                             <input type="checkbox"
                                 onChange={handleCheckBox}
@@ -262,7 +250,7 @@ function Search(props) {
                             }
                         </div>
                     </div>
-                </div> 
+                
                 </Col>
                 <Col className="profileCol2" xs={3}><ProfileNav /></Col>
         

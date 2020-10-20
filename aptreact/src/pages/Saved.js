@@ -39,7 +39,7 @@ function Saved() {
     
     useEffect(() => {
 
-        async function fetchVid(url) {
+        async function fetchVid() {
             const response = await Axios.get(`http://localhost:9000/api/addSaved/v1/vid/`)
             setState(response.data);
             
@@ -47,7 +47,7 @@ function Saved() {
             return response;
     
         }
-        fetchVid()
+        fetchVid();
     }, []);
     
     return (
