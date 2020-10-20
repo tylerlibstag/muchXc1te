@@ -6,6 +6,9 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const localUserSchema = new Schema({
+    screenName:{
+        type: String
+    },
     userID: {
         type: ObjectId
     },

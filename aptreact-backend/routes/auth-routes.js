@@ -34,12 +34,14 @@ router.get("/users/:id", (req, res) => {
       .then(data => res.json(data))
 })
 
+
 // get all users in DB
 router.get("/users", (req, res) => {
   LocalUser.find({}).then(data => {
     res.json(data);
   });
 });
+
 
 
 // Route for logging user out
