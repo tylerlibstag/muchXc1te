@@ -30,10 +30,9 @@ function Video({ url, channel, description, apt, likes, messages, shares }) {
         ref={videoRef}
         src={url}
       ></video>
-
-      <VideoFooter channel={channel} description={description} apt={apt} />
-
-      <VideoSidebar likes={likes} shares={shares} messages={messages} />
+      <VideoFooter url={url} screenName={screenName} description={description} address1={address1} />
+      <VideoSidebar url={url} likes={likes} shares={shares} messages={messages} screenName={screenName} />
+      {/* <div className="bottom">This is stuff on the bottom</div> */}
     </div>
   );
 }
