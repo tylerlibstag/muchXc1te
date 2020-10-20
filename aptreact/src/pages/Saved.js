@@ -11,7 +11,7 @@ import "../../src/index.css";
 import Footer from "../components/Footer/Footer";
 import Video from "../components/Newsfeed/Video"
 
-import Axios from "axios";
+import Axios from "../utils/axios";
 
 import { Link } from 'react-router-dom';
 
@@ -40,7 +40,7 @@ function Saved() {
     useEffect(() => {
 
         async function fetchVid() {
-            const response = await Axios.get(`http://localhost:9000/api/addSaved/v1/vid/`)
+            const response = await Axios.get(`api/addSaved/v1/vid/`)
             setState(response.data);
             
             console.log("this is a saved video", response.data)

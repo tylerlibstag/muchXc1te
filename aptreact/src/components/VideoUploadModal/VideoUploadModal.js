@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Form, Col, Row } from "react-bootstrap";
 import "./VideoUploadModal.css";
-import Axios from "axios";
+import Axios from "../../utils/axios";
 
 
 import {
@@ -58,7 +58,11 @@ function VideoUploadForm() {
 
         
 
-        Axios.post("http://localhost:9000/api/videoroute/upload3", data)
+        // Axios.post("http://localhost:9000/api/videoroute/upload3", data)
+        //     .then(res => console.log(res))
+        //     .catch(err => console.log(err));
+
+        Axios.post("api/videoroute/upload3", data)
             .then(res => console.log(res))
             .catch(err => console.log(err));
 
