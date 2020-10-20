@@ -15,21 +15,19 @@ import Video from "../components/Newsfeed/Video"
 
 function Saved() {
     return (
-        <Container className="newsfeed" fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
-            <FeedNav fluid style={{ paddingLeft: 0, paddingRight: 0 }} />
-            <Row>
-                <Col xs={2}><SideNav /></Col>
-                <Col xs={7}> <div className="main">
-                    <div className="main_videos">
+            <Container className="newsfeed" fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
+                <FeedNav fluid style={{ paddingLeft: 0, paddingRight: 0 }}/>
+                <Row>
+                    <Col xs={2}><SideNav /></Col>
+                    <Col xs={7}> <div className="main">
+                <div className="main_videos">
 
-
-                        {/* {
+                    {/* {
                         userSearch.results.map(({ url }) => (
 
                             <Video url={url} />
                         ))
                     } */}
-                    </div>
                 </div>
 
                 </Col>

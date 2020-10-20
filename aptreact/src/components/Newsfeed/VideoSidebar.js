@@ -27,7 +27,7 @@ function VideoSidebar({ likes, shares, messages, saved }) {
       </div>
 
       <div className="videoSidebar_button">
-        <SaveIcon fontSize="large" />
+        {/* <SaveIcon fontSize="large" onClick={} /> */}
         <p>{saved}</p>
       </div>
 
