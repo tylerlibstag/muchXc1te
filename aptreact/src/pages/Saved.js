@@ -24,20 +24,20 @@ function Saved() {
 
                     {/* {
                         userSearch.results.map(({ url }) => (
+
                             <Video url={url} />
                         ))
                     } */}
                 </div>
-            </div>
-                     
-                    </Col>
-                    <Col className="profileCol" xs={3}><ProfileNav /></Col>
-                </Row>
-            </Container>
 
-    // Take inspiration from TIKTOK
-    // Another (right) side component could be added here as well
-  );
+                </Col>
+                <Col className="profileCol" xs={3}><ProfileNav /></Col>
+            </Row>
+        </Container>
+
+        // Take inspiration from TIKTOK
+        // Another (right) side component could be added here as well
+    );
 }
 
 export default Saved;

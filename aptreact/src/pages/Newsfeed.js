@@ -52,9 +52,9 @@ function Newsfeed() {
                 </Row>
             </Container>
 
-    // Take inspiration from TIKTOK
-    // Another (right) side component could be added here as well
-  );
+        // Take inspiration from TIKTOK
+        // Another (right) side component could be added here as well
+    );
 }
 
 export default Newsfeed;
