@@ -9,9 +9,6 @@ const localUserSchema = new Schema({
     userID: {
         type: ObjectId
     },
-    username: {
-        type: String
-    },
     // Email address of our user. email has to be unique. No two users can have the same email.
     email: {
         type: String,
@@ -44,7 +41,11 @@ const localUserSchema = new Schema({
     // an array of strings
     saved_videos: [{
         type: String
-    }]
+    }],
+    screenName: {
+        type: String
+    }
+
 });
 
 const LocalUser = mongoose.model("localusers", localUserSchema);
