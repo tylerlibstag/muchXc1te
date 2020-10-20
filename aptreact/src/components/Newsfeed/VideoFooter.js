@@ -1,6 +1,7 @@
 import React from "react";
 import "./VideoFooter.css";
 import MusicNoteIcon from "@material-ui/icons/MusicNote";
+import HomeIcon from '@material-ui/icons/Home';
 import Ticker from "react-ticker";
 import AspectRatioOutlinedIcon from '@material-ui/icons/AspectRatioOutlined';
 
@@ -11,7 +12,7 @@ function VideoFooter({ screenName, description, address1 }) {
         <h4>{screenName}</h4>
         <p>{address1}</p>
         <div className="videoFooter_ticker">
-          <MusicNoteIcon className="videoFooter_icon" />
+          <HomeIcon className="videoFooter_icon" />
 
           <Ticker mode="smooth">
             {({ index }) => (
@@ -22,7 +23,7 @@ function VideoFooter({ screenName, description, address1 }) {
           </Ticker>
         </div>
       </div>
-      <AspectRatioOutlinedIcon className="expandIcon" />
+      <AspectRatioOutlinedIcon fontSize="large" className="expandIcon" />
     </div>
   );
 }

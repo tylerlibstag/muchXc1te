@@ -28,16 +28,12 @@ function ProfileNav() {
             <br></br>
             <div className="profileNavButtons">
                 <LoginButton size="lg" onClick={() => setShow(true)}>
-                    Upload Video
+                    Upload
                 </LoginButton>
                 <VideoUploadModal show={show} setShow={setShow} />
                 <br></br>
                 <br></br>
-                <Link to={Saved}>
-                    <Button style={{ backgroundColor: "#2B89AD", margin: "2.5%", borderColor: "unset" }}>
-                        <p>Saved</p>
-                    </Button>
-                </Link>
+
             </div>
 
         </div>
