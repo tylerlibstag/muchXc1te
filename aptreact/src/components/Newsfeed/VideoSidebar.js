@@ -7,40 +7,69 @@ import MessageIcon from "@material-ui/icons/Message";
 import ShareIcon from "@material-ui/icons/Share";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import SaveIcon from '@material-ui/icons/Save';
+//import { ThemeContextConsumer } from "../../utils/UserContextProvider";
+import MyContext from '../../utils/Context'
+import axios from 'axios'
 
-function VideoSidebar({ likes, shares, messages, saved }) {
+
+
+function VideoSidebar({ url, likes, shares, messages, save, screenName }) {
+
   const [liked, setLiked] = useState(false);
+  const [saved, setSaved] = useState({ 
+    results: []
+});
 
-  return (
-    <div className="videoSidebar">
-      <div className="videoSidebar_button">
-        {liked ? (
-          <FavoriteIcon fontSize="large" onClick={(e) => setLiked(false)} />
-        ) : (
-            <FavoriteBorderIcon
-              fontSize="large"
-              onClick={(e) => setLiked(true)}
-            />
-          )}
 
-        <p>{liked ? likes + 1 : likes}</p>
+
+
+var handleClick = (url) => {
+  console.log('this is the url for the vid u wanna save!!!', url)
+   axios.post(`http://localhost:9000/api/auth/addSaved`,{url: url},{screenName: screenName});
+}
+
+console.log('my conteext!!', MyContext)
+
+
+        return (
+       
+        
+        <div className="videoSidebar">
+          <div className="videoSidebar_button">
+            {liked ? (
+              <FavoriteIcon fontSize="large" onClick={(e) => setLiked(false)} />
+            ) : (
+              <FavoriteBorderIcon
+                fontSize="large"
+                onClick={(e) => setLiked(true)}
+              />
+            )}
+
+            <p>{liked ? likes + 1 : likes}</p>
+          </div>
+          
+          <div className="videoSidebar_button">
+            <SaveIcon onClick={() => {handleClick(url,screenName)}} fontSize="large" />
+            <p>{save}</p>
+          </div>
+
+          <div className="videoSidebar_button">
+            <MessageIcon fontSize="large" />
+            <p>{messages}</p>
+          </div>
+
+          <div className="videoSidebar_button">
+            <ShareIcon fontSize="large" />
+            <p>{shares}</p>
+          </div>
       </div>
-      <div className="videoSidebar_button">
-        {/* <SaveIcon fontSize="large" onClick={} /> */}
-        <p>{saved}</p>
-      </div> */}
+    
 
-      <div className="videoSidebar_button">
-        <SaveIcon fontSize="large" />
-        <p>{messages}</p>
-      </div>
+      )
 
-      <div className="videoSidebar_button">
-        <ShareIcon fontSize="large" />
-        <p>{shares}</p>
-      </div>
-    </div>
-  );
+        
+
+
 }
 
 export default VideoSidebar;

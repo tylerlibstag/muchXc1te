@@ -55,15 +55,7 @@ router.get("/register_login", (req, res, next) => {
   })(req, res, next);
 });
 
-router.post(("/addSaved"), (req, res, next) => {
-  console.log('time to save~!!!', req.body)
-  const savedVideos = req.body;
-  LocalUser.update(
-  { $push: { saved_Videos: savedVideos } }
-  ).then(data => res.json(data))
-  (req, res, next);
-  // save to DB!!!!! look  up how to push something to array on LocalUser $push
-});
+
 
 router.get("/users/:id", (req, res) => {
   const id = req.params.id;
@@ -78,12 +70,39 @@ router.get("/users/:id", (req, res) => {
 //   });
 // });
 
+router.post(("/addSaved"), (req, res) => {
+  console.log('time to save~!!!', req.body)
+  const savedVideos = req.body;
+  
+  LocalUser.create(   
+      { url: savedVideos.url}, 
+
+      function (err, result) {
+          if (err) {
+              res.send(err);
+          } else {
+              res.send(result);
+          }
+      }
+  );
+  
+
+  // save to DB!!!!! look  up how to push something to array on LocalUser $push
+});
+
+
+
+
+
+
+
 // get all users in DB
 router.get("/users", (req, res) => {
   LocalUser.find({}).then(data => {
     res.json(data);
   });
 });
+
 
 
 // Route for logging user out
