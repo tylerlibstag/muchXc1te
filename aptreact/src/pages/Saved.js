@@ -1,7 +1,6 @@
 import React from "react";
 import "../components/Newsfeed/Newsfeed.css";
 import "bootstrap/dist/css/bootstrap.css";
-import FeedNav from "../components/Navs/FeedNav";
 import Main from "../components/Newsfeed/Main";
 import SideNav from "../components/Navs/SideNav";
 import ProfileNav from "../components/Navs/ProfileNav"
@@ -11,13 +10,34 @@ import Col from "react-bootstrap/Col";
 import "../../src/index.css";
 import Footer from "../components/Footer/Footer";
 import Video from "../components/Newsfeed/Video"
+import { Link } from 'react-router-dom';
+
+//Images
+import HeaderBackground from "../components/Images/HeaderBackground.png";
+import Boroughd from "../components/Images/boroughd.png";
+
+// Login Imports
+import { LoginButton } from "../components/Landing/style";
+
+
+const boroughd = <img src={Boroughd} id="HeaderHero" alt="boroughd"></img>
 
 
 function Saved() {
     return (
-            <Container className="newsfeed" fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
-                <FeedNav fluid style={{ paddingLeft: 0, paddingRight: 0 }}/>
-                <Row>
+            <Container className="newsfeed" fluid style={{ paddingLeft: 0, paddingRight: 0 }} id="Hero" style={{ backgroundImage: `url(${HeaderBackground})` }}>
+                        <div className="row">
+                        <div className="col-2">
+                            <Link to="/">{boroughd}</Link>
+                        </div>
+                        <div className="col-8"></div>
+                        <div className="col-2">
+                            <LoginButton size="lg" > <a href="/">
+                                Logout</a>
+                            </LoginButton>
+                        </div>
+                    </div>
+                <Row id="topSpacer">
                     <Col xs={2}><SideNav /></Col>
                     <Col xs={7}> <div className="main">
                     <div className="main_videos">

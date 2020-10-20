@@ -1,9 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "./SideNav.css";
-import Search from "../../pages/Search";
-import Newsfeed from "../../pages/Newsfeed";
-import Profile from "../../pages/Profile";
 
 const search = <i className="fas fa-search fa-3x"></i>;
 const newsfeed = <i className="fas fa-video fa-3x"></i>;

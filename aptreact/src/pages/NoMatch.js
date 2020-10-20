@@ -1,16 +1,30 @@
 import React from "react";
 import "../components/NoMatch/NoMatch.css";
-import 'bootstrap/dist/css/bootstrap.css';
-import UserAuthNav from "../components/Navs/UserAuthNav";
-import NoMatchHouse from "../components/Images/no match house .png"
+import "bootstrap/dist/css/bootstrap.css";
+import Container from "react-bootstrap/Container";
+import "../../src/index.css";
+import { Link } from 'react-router-dom';
+
+//Images
+import HeaderBackground from "../components/Images/HeaderBackground.png";
+import Boroughd from "../components/Images/boroughd.png";
+
+
+const boroughd = <img src={Boroughd} id="HeaderHero" alt="boroughd"></img>
 
 function NoMatch() {
     return (
         // This will be a fun lil graphic telling the user theres nothing here
-        <div>
-            <UserAuthNav/>
-            <img id="NoMatch" src={NoMatchHouse} />
-        </div>
+        <Container className="newsfeed" fluid style={{ paddingLeft: 0, paddingRight: 0 }} id="Hero" style={{ backgroundImage: `url(${HeaderBackground})` }}>
+            <div className="row">
+                <div className="col-2">
+                    <Link to="/">{boroughd}</Link>
+                </div>
+                <div className="col-10"></div>
+            </div>
+            <div id="topSpacer">
+            </div>
+        </Container>
     )
 }
 
