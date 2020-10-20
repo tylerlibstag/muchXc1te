@@ -19,7 +19,7 @@ videoRouter.use((req, res, next) => {
 
 //instantiate storage client
 const storage = new Storage({
-    keyFilename: "../config/aptreactstorage-52385ce6c45e.json",
+    keyFilename: "aptreactstorage-52385ce6c45e.json",
 });
 const bucket = storage.bucket("apt-videos");
 
@@ -293,11 +293,11 @@ videoRouter.get("/v2/posts/:category/:search/", (req, res) => {
 });
 
 
-videoRouter.get('/v2/posts/:neartransportation',(req,res)=>{
-    console.log('nearest park',res);
+videoRouter.get('/v2/posts/:neartransportation', (req, res) => {
+    console.log('nearest park', res);
     console.log(req.params.nearpark)
     console.log(req.params.view, "this view")
-    Videos.find({neartransportation:req.params.neartransportation},(err,data)=>{
+    Videos.find({ neartransportation: req.params.neartransportation }, (err, data) => {
         res.json(data)
     });
 })
