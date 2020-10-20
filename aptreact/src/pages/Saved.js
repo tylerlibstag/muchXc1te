@@ -20,14 +20,15 @@ function Saved() {
                 <Row>
                     <Col xs={2}><SideNav /></Col>
                     <Col xs={7}> <div className="main">
-                <div className="main_videos">
+                    <div className="main_videos">
 
-                    {/* {
-                        userSearch.results.map(({ url }) => (
+                        {/* {
+                            userSearch.results.map(({ url }) => (
 
-                            <Video url={url} />
-                        ))
-                    } */}
+                                <Video url={url} />
+                            ))
+                        } */}
+                    </div>
                 </div>
 
                 </Col>
