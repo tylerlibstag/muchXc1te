@@ -70,25 +70,25 @@ router.get("/users/:id", (req, res) => {
 //   });
 // });
 
-router.post(("/addSaved"), (req, res) => {
-  console.log('time to save~!!!', req.body)
-  const savedVideos = req.body;
+// router.post(("/addSaved"), (req, res) => {
+//   console.log('time to save~!!!', req.body)
+//   const savedVideos = req.body;
   
-  LocalUser.create(   
-      { url: savedVideos.url}, 
+//   LocalUser.create(   
+//       { url: savedVideos.url}, 
 
-      function (err, result) {
-          if (err) {
-              res.send(err);
-          } else {
-              res.send(result);
-          }
-      }
-  );
+//       function (err, result) {
+//           if (err) {
+//               res.send(err);
+//           } else {
+//               res.send(result);
+//           }
+//       }
+//   );
   
 
   // save to DB!!!!! look  up how to push something to array on LocalUser $push
-});
+// });
 
 
 
