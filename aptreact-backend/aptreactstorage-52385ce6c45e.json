@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "digital-shadow-291003",
+  "private_key_id": "52385ce6c45efdf5cc0ff384226d297b38f424fd",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCH0h86+V2mJh5K\nA5QpGfEvfin5pRlInjfUAe3KkvXN3eoBeuT5Ll0sfZqvjHCarQgsTYSJXWivYv7a\n9sFZAAYcIqDFbwi+5kGx7jRCIltElNJTPYAcXI2up4tnIMXybCA65awmJzA3JeKT\naTA7HIgoCGBPawJJ+hqV2zz+c0j2Qc//qwbcaVONpTFeI98lrDEd9+QbctuL6bj6\nb6t7YQQU1gcYGA9HMmxRl1Fkv9a5z1gpiXg1HLcxptMAJzdMxnVccQit0IqHTqL6\neDTuCcojNjOkWrwL+VzsHgPG8na8CmJ7JarRVbfZ6SYShHNwxp2tpVhl8y69r7iY\nVCyIu75xAgMBAAECggEALWMhzZbcXTP6xjgI8G07ZGgQRd0OpG4+8MmOObY/jwKb\n+s+jKcP9HeuBYC2ZyY6cHyPuaOr+mzGFQg3YkdHIuOk3eZK/xO90P63+56TMhBAJ\ncwinwZKKRDW4B4fzri3E3Xm3u+43lg5Cd4lctTw1Ic+ew5taYfdCoBZp/Qvwc14R\nL6z8bhtSZfKJmUlgjLhwnDxBmjZPJjHDysAz4T0Xzm+WcI5/sFzwrpEjTxQXuXLV\npbAsXgg3TDKXWV9vHvaSKyJS6YXaxSuiUDvd2IB2Gr0JCkNDl0kLUJxRACGPP0N1\n02j1iSYpoWE2g1+jC5u0LFXPyk01i1inFPFdr4lvKwKBgQC7qiGY32RoWHrUveX0\nDeOSO5Ve9oDKnJZz6BcibmevINcSM6FmpRI8whmV2EDQQY+V8RKgfTY9S1TnL1P9\n/CwUujFNImzQEhtPR95NJXaw7MVj+v/SkOngY7vwvoYYkg79Vah8JRkdgCNDHmal\nLEi12ZZGAQucC0dBJcmZBmdeSwKBgQC5Ryyynt8HMES4cmie+jLHQ0FLnDw2apVX\n5aD11lI+1jUITnrONz5lZSqipHLV8P+E9n+G8AH0JYxg4kAb8Oar6ncRobIB+OR6\nOJe98YS1Mn/wi7OrifTzYxTLqLkOc4u3E+kxAmbNuu4Lz/E90iOV3+xyZv843tAr\nHxktbxxwswKBgQCA6hJCTdNPytg2JG0/Bft6jOvDXFqE1KSV4q1hva4EI+8aVdVe\nCa9JhZzFztRXO3JDcmN1VA5adNFSLrToGL6/TlhnwGo3VPjlsV0Iad/rEftW/ymV\noG7I8jo82uSLJGqfpKQlA+cI2OlgRhYFCTK5mUsds8Ih462DF04xjLCdmQKBgQC0\npyZ4/5ldK/5FjiBeqnwqeHRJIgw/zsrRSnAYZCILbNeGwubQ/WKUgQECVrA11GeA\noMyVqJ1vDdGDgfeahtiT1ejFQ1EKxUEZvuaN6NlJx/ShecX1Q22Yhwp2zYurAJTB\nLOPZyoqsnFCRKe8CJUxXTWAB6FWAgRiegxMMjuM/KwKBgGQONdM0C/sGRn3ieF1f\nE7rw3Vz3zCiaas8J+f9nYH2D7F64QIByeN0qwb5F/up5ryHXEHLNw2Tb6G8xQ91I\nKBTEMY0ayYbKG0VV1IHtbb89cZ6Q+q5pU0tTBj7IhWmyvJ920uGAqmYAV6Sjs6RO\n5K4Kbff2cBv//5c9SYm8q7si\n-----END PRIVATE KEY-----\n",
+  "client_email": "storevids@digital-shadow-291003.iam.gserviceaccount.com",
+  "client_id": "105509845592570930926",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/storevids%40digital-shadow-291003.iam.gserviceaccount.com"
+}

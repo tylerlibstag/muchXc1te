@@ -31,7 +31,9 @@ function Video({ url, screenName, description, address1, likes, messages, shares
         ref={videoRef}
         src={url}
       ></video>
-      <VideoFooter screenName={screenName} description={description} address1={address1} />
+
+      <VideoFooter url={url} screenName={screenName} description={description} address1={address1} />
+
       <VideoSidebar url={url} likes={likes} shares={shares} messages={messages} screenName={screenName} />
       {/* <div className="bottom">This is stuff on the bottom</div> */}
     </div>

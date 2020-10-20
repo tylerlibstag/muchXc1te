@@ -25,6 +25,7 @@ const boroughd = <img src={Boroughd} id="HeaderHero" alt="boroughd" style={{ mar
 
 function Newsfeed() {
     return (
+
         <Container className="newsfeed" fluid style={{ paddingLeft: 0, paddingRight: 0 }} id="Hero" style={{ backgroundImage: `url(${HeaderBackground})` }}>
             <div className="row">
                 <div className="col-2">
@@ -43,7 +44,6 @@ function Newsfeed() {
                 <Col className="profileCol" xs={3}><ProfileNav /></Col>
             </Row>
         </Container>
-
         // Take inspiration from TIKTOK
         // Another (right) side component could be added here as well
     );

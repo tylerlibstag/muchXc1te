@@ -1,0 +1,61 @@
+input {
+    font-size: 16px;
+    padding: 5px;
+    margin: 10px;
+  }
+  
+  label {
+    font-size: 18px;
+    width: 100px;
+    text-align: left;
+  }
+  
+  .flex {
+    display: flex;
+    align-items: center;
+  }
+  
+  button {
+    padding: 5px;
+    width: 100px;
+    border-radius: 2px;
+  }
+
+  
+
+  
+  .bigMain {
+    padding: 0;
+    border: 0;
+    margin: 0;
+  
+  }
+  
+  
+  .bigMain {
+    /* height: 50vh; */
+    display: grid;
+    place-items: center;
+    
+  }
+  
+  .bigMain_videos {
+    position: relative;
+    height: 800px;
+    width: 90%;
+    /* height: 60%; */
+    border-radius: 20px;
+    max-width: 550px;
+    scroll-snap-type: y mandatory;
+    overflow: scroll;
+  }
+  
+  .bigMain_videos::-webkit-scrollbar {
+    display: none;
+  }
+  .bigMain_videos {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  
