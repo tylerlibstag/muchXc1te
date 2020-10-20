@@ -8,6 +8,9 @@ import { Link } from 'react-router-dom';
 import HeaderHero from "../components/Images/HeaderHero.png"
 import HeaderBackground from "../components/Images/HeaderBackground.png"
 import Boroughd from "../components/Images/boroughd.png";
+import AptHero from "../components/Images/AptHero.png";
+import banner1 from "../components/Images/banner1.png";
+import SignUpHero from "../components/Images/SignUpHero.png";
 
 // Login Imports
 import SignUpLoginModal from "../components/SignUpLoginModal/SignUpLoginModal";
@@ -22,6 +25,7 @@ function Landing () {
 
     return (
         <div>
+
             <div className="container" id="Hero" style={{ backgroundImage: `url(${HeaderBackground})`}}>
                 <div className="row">
                     <div className="col-2">
@@ -37,15 +41,45 @@ function Landing () {
                 </div>
                 <div className="row">
                     <div className="col-md-5 my-auto" id="HeaderText">
-                        <h2>Opening text here</h2>
-                        <h3>and the rest of the tag line here</h3>
+                        <h2>A community-driven solution to finding your next home.</h2>
                     </div>
                     <div className="col-md-7 text-center my-auto">
-                        <img src={HeaderHero} id="HeaderHero" alt="A skater, a dog walker in heels, and two phone users walking out of a large phone."/>
+                        <img src={HeaderHero} id="HeaderHero"/>
                     </div>
                 </div>
             </div>
-            <Footer />
+
+            <div className="container">
+                <div className="row">
+                    <div className="col-7">
+                        <img src={SignUpHero} id="HeaderHero"/>
+                    </div>
+                    <div className="col-5 text-center my-auto">
+                        <h3>View videos of apartments in the areas you are looking to move to uploaded by lookers just like you.</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div className="container" id="Hero" style={{ backgroundImage: `url(${banner1})`}}>
+                <div className="row">
+                        <div className="col-md-5 my-auto" id="HeaderText">
+                            <h2>A community-driven solution to finding your next home.</h2>
+                        </div>
+                        <div className="col-md-7 text-center my-auto">
+                            <img src={HeaderHero} id="HeaderHero"/>
+                        </div>
+                </div>
+            </div>
+
+            <div className="row" style={{ marginTop: '10%'}}>
+                    <div className="col-md-6 my-auto" id="HeaderText">
+                        <img src={AptHero} id="AptHero"/>
+                    </div>
+                    <div className="col-md-6 text-center my-auto">
+                        <h2>We'll help you find a space that has everything you need to live the way you want.</h2>
+                    </div>
+            </div>
+
         </div>
     )
 }
