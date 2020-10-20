@@ -1,6 +1,7 @@
 .videoSidebar {
   position: absolute;
-  top: 50%;
+  top: 55%;
   right: 10px;
-  color: black;
+  color: white;
+  font-weight: bold !important;
 }
