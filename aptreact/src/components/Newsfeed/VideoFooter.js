@@ -2,6 +2,7 @@ import React from "react";
 import "./VideoFooter.css";
 import MusicNoteIcon from "@material-ui/icons/MusicNote";
 import Ticker from "react-ticker";
+import AspectRatioOutlinedIcon from '@material-ui/icons/AspectRatioOutlined';
 
 function VideoFooter({ screenName, description, address1 }) {
   return (
@@ -21,11 +22,7 @@ function VideoFooter({ screenName, description, address1 }) {
           </Ticker>
         </div>
       </div>
-      <img
-        className="videoFooter_record"
-        src="https://static.thenounproject.com/png/934821-200.png"
-        alt=""
-      />
+      <AspectRatioOutlinedIcon className="expandIcon" />
     </div>
   );
 }

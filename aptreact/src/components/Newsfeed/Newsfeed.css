@@ -63,3 +63,16 @@ h3 {
     /* place-items: left;  */
     /* color: white; */
 }
+
+#Hero {
+    padding-top: 3%;
+    max-width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#topSpacer {
+    padding-top: 8%;
+}

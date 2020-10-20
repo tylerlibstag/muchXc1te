@@ -13,15 +13,13 @@ function SideNav() {
   return (
 
     <div className='sideNav'>
-      <div className="vl2"></div>
-      <Link className="link" to="/Newsfeed">{newsfeed}</Link>
-      <br></br>
-      <Link to="/Search">{search}</Link>
-      <br></br>
-      <Link to="/Saved">{collections}</Link>
-
-
-
+      <div className="vl2">
+        <Link className="link" to="/Newsfeed">{newsfeed}</Link>
+        <br></br>
+        <Link to="/Search">{search}</Link>
+        <br></br>
+        <Link to="/Saved">{collections}</Link>
+      </div>
     </div>
 
   )
