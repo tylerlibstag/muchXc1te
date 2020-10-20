@@ -45,7 +45,7 @@ function Newsfeed() {
                         <SignUpLoginModal show={show} setShow={setShow} />
                     </div>
                 </div>
-                <Row>
+                <Row id="topSpacer">
                     <Col xs={2}><SideNav /></Col>
                     <Col xs={7}><Main /></Col>
                     <Col className="profileCol" xs={3}><ProfileNav /></Col>

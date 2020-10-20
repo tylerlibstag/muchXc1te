@@ -72,3 +72,7 @@ h3 {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+#topSpacer {
+    padding-top: 8%;
+}
