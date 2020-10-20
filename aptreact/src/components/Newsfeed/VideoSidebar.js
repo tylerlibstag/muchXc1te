@@ -16,12 +16,29 @@ import axios from 'axios'
 function VideoSidebar({ url, likes, shares, messages, save, screenName }) {
 
   const [liked, setLiked] = useState(false);
-  const [saved, setSaved] = useState({ 
+  const [saved, setSaved] = useState({
     results: []
-}); 
+  });
+
+
+
+
+
+
+
+  var handleClick = (url) => {
+
+
+    console.log('this is the url for the vid u wanna save!!!', screenName)
+    axios.post(`http://localhost:9000/api/addSaved/v1/vid/`, { url: url })
+  }
+  //,{screenName: screenName}
+
 
 
   return (
+
+
     <div className="videoSidebar">
       <div className="videoSidebar_button">
         {liked ? (
@@ -35,71 +52,31 @@ function VideoSidebar({ url, likes, shares, messages, save, screenName }) {
 
         <p>{liked ? likes + 1 : likes}</p>
       </div>
+
       <div className="videoSidebar_button">
-        {/* <SaveIcon fontSize="large" onClick={} /> */}
-        <p>{saved}</p>
+        <SaveIcon onClick={() => { handleClick(url) }} fontSize="large" />
+        <p>{save}</p>
       </div>
 
       <div className="videoSidebar_button">
-        <SaveIcon fontSize="large" />
+        <MessageIcon fontSize="large" />
         <p>{messages}</p>
       </div>
 
-
-
-
-var handleClick = (url) => {
- 
-
-  console.log('this is the url for the vid u wanna save!!!', screenName)
-   axios.post(`http://localhost:9000/api/addSaved/v1/vid/`,{url: url})
-}
-//,{screenName: screenName}
-console.log('my conteext!!', MyContext)
-
-
-        return (
-       
-        
-        <div className="videoSidebar">
-          <div className="videoSidebar_button">
-            {liked ? (
-              <FavoriteIcon fontSize="large" onClick={(e) => setLiked(false)} />
-            ) : (
-              <FavoriteBorderIcon
-                fontSize="large"
-                onClick={(e) => setLiked(true)}
-              />
-            )}
-
-            <p>{liked ? likes + 1 : likes}</p>
-          </div>
-          
-          <div className="videoSidebar_button">
-            <SaveIcon onClick={() => {handleClick(url)}} fontSize="large" />
-            <p>{save}</p>
-          </div>
-
-          <div className="videoSidebar_button">
-            <MessageIcon fontSize="large" />
-            <p>{messages}</p>
-          </div>
-
-          <div className="videoSidebar_button">
-            <ShareIcon fontSize="large" />
-            <p>{shares}</p>
-          </div>
+      <div className="videoSidebar_button">
+        <ShareIcon fontSize="large" />
+        <p>{shares}</p>
       </div>
-
     </div>
-  )};
-  
 
-    
 
-      )
 
-        
+
+
+
+  )
+
+
 
 
 }
