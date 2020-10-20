@@ -21,10 +21,11 @@ function FeedNav() {
                     </div>
                     <div className="col-7"></div>
                     <div className="col-3" >
-                        <LoginButton size="lg" >
+                        <LoginButton size="lg" onClick={() => setShow(true)}>
+                            Logout
                         </LoginButton>
-                        <SignUpLoginModal show={show} setShow={setShow} />
-                        <a href="/">Logout</a>
+                        {/* <SignUpLoginModal show={show} setShow={setShow} />
+                        <a href="/">Logout</a> */}
                     </div>
                 </div>
             </nav>

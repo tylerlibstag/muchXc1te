@@ -30,10 +30,11 @@ a:visited {
 .vl2 {
     margin: 0;
     position: absolute;
-    top: 50%;
+    top: 24%;
     /* -ms-transform: translateY(-50%); */
     transform: translateY(-50%);
-    border-left: 1px solid lightgray;
-    height: 575px;
+    /* border-right: 1px solid lightgray; */
+    /* height: 575px; */
+
 };
 

@@ -17,22 +17,21 @@ function VideoSidebar({ likes, shares, messages, saved }) {
         {liked ? (
           <FavoriteIcon fontSize="large" onClick={(e) => setLiked(false)} />
         ) : (
-          <FavoriteBorderIcon
-            fontSize="large"
-            onClick={(e) => setLiked(true)}
-          />
-        )}
+            <FavoriteBorderIcon
+              fontSize="large"
+              onClick={(e) => setLiked(true)}
+            />
+          )}
 
         <p>{liked ? likes + 1 : likes}</p>
       </div>
-      
-      {/* <div className="videoSidebar_button">
-        <SaveIcon fontSize="large" onClick={} />
+      <div className="videoSidebar_button">
+        {/* <SaveIcon fontSize="large" onClick={} /> */}
         <p>{saved}</p>
       </div> */}
 
       <div className="videoSidebar_button">
-        <MessageIcon fontSize="large" />
+        <SaveIcon fontSize="large" />
         <p>{messages}</p>
       </div>
 

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Modal, Form, Col, Row } from "react-bootstrap";
-import SignUpHero from "../Images/SignUpHero.png";
 import "./VideoUploadModal.css";
 import Axios from "axios";
 
@@ -85,9 +84,7 @@ const VideoUploadModal = props => {
         <Modal style={{ opacity: 1 }} show={props.show} onHide={() => props.setShow(false)}>
             <Modal.Header closeButton>
                 <Modal.Title>Upload a Video
-                    <div className="container">
-                        <img src={SignUpHero} id="SignUpHero" alt="A skater, a dog walker in heels, and two phone users walking out of a large phone." />
-                    </div>
+            
                 </Modal.Title>
 
             </Modal.Header>
