@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "../utils/axios";
 import 'bootstrap/dist/css/bootstrap.css';
-import FeedNav from "../components/Navs/FeedNav";
+import "../components/Search/Search.css";
 import SideNav from "../components/Navs/SideNav";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -9,7 +9,13 @@ import Col from "react-bootstrap/Col";
 import ProfileNav from "../components/Navs/ProfileNav"
 import Video from "../components/Newsfeed/Video";
 import Footer from "../components/Footer/Footer";
+import { LoginButton } from "../components/Landing/style";
+import { Link } from 'react-router-dom';
 
+//Images
+import HeaderBackground from "../components/Images/HeaderBackground.png";
+import Boroughd from "../components/Images/boroughd.png";
+const boroughd = <img src={Boroughd} id="HeaderHero" alt="boroughd"></img>
 
 var vidData = "";
 function Search(props) {
@@ -150,11 +156,22 @@ function Search(props) {
 
     return (
     
-        <Container fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
+        <Container fluid style={{ paddingLeft: 0, paddingRight: 0 }} id="Hero" style={{ backgroundImage: `url(${HeaderBackground})` }}>
         
-                <FeedNav fluid style={{ paddingLeft: 0, paddingRight: 0 }}/>
+            <div className="row">
+                    <div className="col-2">
+                        <Link to="/">{boroughd}</Link>
+                    </div>
+                    <div className="col-8"></div>
+                    <div className="col-2">
+                        <LoginButton size="lg" > <a href="/">
+                            Logout</a>
+                        </LoginButton>
+
+                    </div>
+                </div>
                 
-                <Row>
+                <Row id="topSpacer">
                 <Col xs={2}><SideNav /></Col>
                 
                 <Col className="mainSearchContainer" xs={7}>

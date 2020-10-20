@@ -5,7 +5,6 @@ import { LoginButton } from "../Landing/style";
 import "./ProfileNav.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import VideoUploadModal from "../VideoUploadModal/VideoUploadModal";
-import Saved from "../Saved/Saved";
 import user from "../Images/usernomatch.png"
 
 
