@@ -175,84 +175,96 @@ function Search(props) {
                 <Col xs={2}><SideNav /></Col>
                 
                 <Col className="mainSearchContainer" xs={7}>
-            <form id="lang" onChange={handleCategory}>
-                <option value="zipcode">Zipcode</option> 
-                <input onChange={handleTyping} />
-                <button onClick={handleClick}>Search</button>
-            </form>
-            
-            <form id="lang" onChange={handleCategory}>
-            <option value="bedrooms">bedrooms</option>
-            <input onChange={handleTyping} />
-            <button onClick={handleClick}>Search</button>
-            
-            </form>
-                
-            <form id="lang" onChange={handleCategory}>
-            <option value="bathrooms">bathrooms</option>
-             <input onChange={handleTyping} />
-             <button onClick={handleClick}>Search</button>
-            </form>
-            <label>
-                <input type="checkbox"
-                    onChange={handleCheckBox}
-                />
-            Near Transportation
-            </label>
-            <label>
-                <input type="checkbox"
-                    onChange={handleCheckBox}
-                />
-            Near Grocery Store
-            </label>
-            <label>
-                <input type="checkbox"
-                    onChange={handleCheckBox}
-                />
-            View
-            </label>
-            <label>
-                <input type="checkbox"
-                    onChange={handleCheckBox}
-                />
-            Near Park
-            </label>
-            
-
-
-            <div class="form-group mb-2">
-                <select onChange={handleState} name="state" id="state" class="form-control" value={stateValue}>
-                    {
-                        state.map((state) => (
-                            <option value={state.state_name} key={state.state_name}>{state.state_name}</option>
-                        ))
-                    }
-                </select>
-            </div>
-            <div class="form-group mb-2">
-                <select id="city" class="form-control" onChange={handleCity} value={city}>
-                    {
-                        cityFromApi.map((city) => (
-                            <option value={city.city_name} key={city.city_name}>{city.city_name}</option>
-                        ))
-                    }
-                </select>
-            </div>
-
-
-
-            <div className="main">
-                <div className="main_videos">
-
-                    {
-                        userSearch.results.map(({ url }) => (
-                            <Video url={url} />
-                        ))
-                    }
+            <div className="cityState">
+                <div class="form-group mb-2">
+                    <select onChange={handleState} name="state" id="state" class="form-control" value={stateValue}>
+                        <option disabled selected>Select State</option>
+                        {
+                            state.map((state) => (
+                                <option value={state.state_name} key={state.state_name}>{state.state_name}</option>
+                            ))
+                        }
+                    </select>
+                </div>
+                <div class="form-group mb-2">
+                    <select id="city" class="form-control" onChange={handleCity} value={city}>
+                        <option disabled selected>Select City</option>
+                        {
+                            cityFromApi.map((city) => (
+                                <option value={city.city_name} key={city.city_name}>{city.city_name}</option>
+                            ))
+                        }
+                    </select>
                 </div>
             </div>
-            </Col>
-            <Col className="profileCol" xs={3}><ProfileNav /></Col>
+
+                <div className="row">
+                    <div className="col-6 zipBeds">
+                        <form id="lang" onChange={handleCategory}>
+                            <option value="zipcode">Zip Code:</option> 
+                            <input onChange={handleTyping} />
+                            <button onClick={handleClick}>Search</button>
+                        </form>
+                        
+                        <form id="lang" onChange={handleCategory}>
+                            <option value="bedrooms">Bedrooms:</option>
+                            <input onChange={handleTyping} />
+                            <button onClick={handleClick}>Search</button>
+                        </form>
+                            
+                        <form id="lang" onChange={handleCategory}>
+                            <option value="bathrooms">Bathrooms:</option>
+                            <input onChange={handleTyping} />
+                            <button onClick={handleClick}>Search</button>
+                        </form>
+
+                    </div>
+
+                    <div className="col-3 checkboxCol">       
+                        <label>
+                            <input type="checkbox"
+                                onChange={handleCheckBox}
+                            />
+                        Near Transportation
+                        </label>
+
+                        <label>
+                            <input type="checkbox"
+                                onChange={handleCheckBox}
+                            />
+                        Near Grocery Store
+                        </label>
+                    </div>
+                    <div className="col-3 checkboxCol2">
+                        <label>
+                            <input type="checkbox"
+                                onChange={handleCheckBox}
+                            />
+                        Has View
+                        </label>
+
+                        <label>
+                            <input type="checkbox"
+                                onChange={handleCheckBox}
+                            />
+                        Near Park
+                        </label>
+                        
+                    </div>
+
+                    <div className="main">
+                        <div className="main_videos2">
+
+                            {
+                                userSearch.results.map(({ url }) => (
+                                    <Video url={url} />
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div> 
+                </Col>
+                <Col className="profileCol2" xs={3}><ProfileNav /></Col>
         
         </Row>
         </Container>
