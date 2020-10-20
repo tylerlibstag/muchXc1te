@@ -7,9 +7,10 @@ import { Link } from 'react-router-dom';
 //Images
 import HeaderBackground from "../components/Images/HeaderBackground.png";
 import Boroughd from "../components/Images/boroughd.png";
+import muchXc1te from "../components/Images/muchXc1te.png";
 
 
-const boroughd = <img src={Boroughd} id="HeaderHero" alt="boroughd"></img>
+const boroughd = <img src={Boroughd} id="HeaderHero" alt="boroughd" style={{ marginLeft: '20%'}}></img>
 
 function About() {
     return (
@@ -21,7 +22,11 @@ function About() {
                 </div>
                 <div className="col-10"></div>
             </div>
-            <div id="topSpacer">
+            <div className="row" id="topSpacer">
+                <div className="col-5">
+                    <img src={muchXc1te} id="muchXc1te" style={{ marginLeft: '15%'}}/>
+                </div>
+                <div className="col-7"></div>
             </div>
         </Container>
     )

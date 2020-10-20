@@ -8,9 +8,10 @@ import { Link } from 'react-router-dom';
 //Images
 import HeaderBackground from "../components/Images/HeaderBackground.png";
 import Boroughd from "../components/Images/boroughd.png";
+import NoMatchHero from "../components/Images/NoMatchHero.png";
 
 
-const boroughd = <img src={Boroughd} id="HeaderHero" alt="boroughd"></img>
+const boroughd = <img src={Boroughd} id="HeaderHero" alt="boroughd" style={{ marginLeft: '20%'}}></img>
 
 function NoMatch() {
     return (
@@ -22,7 +23,15 @@ function NoMatch() {
                 </div>
                 <div className="col-10"></div>
             </div>
-            <div id="topSpacer">
+            <div className="row">
+                <div className="col-6">
+                    <img src={NoMatchHero} id="NoMatchHero" style={{ marginLeft: '10%'}}/>
+                </div>
+                <div className="col-6 my-auto">
+                    <h2 style={{ marginLeft: '10%'}}>Look's like you got a little lost...</h2>
+                    <br/>
+                    <h3 style={{ marginLeft: '10%'}}>Let's take you back<a id="noMatchLink" href="/">home.</a></h3>
+                </div>
             </div>
         </Container>
     )

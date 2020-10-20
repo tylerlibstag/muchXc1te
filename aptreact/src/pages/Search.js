@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 //Images
 import HeaderBackground from "../components/Images/HeaderBackground.png";
 import Boroughd from "../components/Images/boroughd.png";
-const boroughd = <img src={Boroughd} id="HeaderHero" alt="boroughd"></img>
+const boroughd = <img src={Boroughd} id="HeaderHero" alt="boroughd" style={{ marginLeft: '20%'}}></img>
 
 var vidData = "";
 function Search(props) {

@@ -6,10 +6,16 @@ body {
 
 h2 {
     font-size: x-large !important;
+    color: #174369;
 }
 
 h3 {
     font-size: larger !important;
+    color: #174369;
+}
+
+#noMatchLink {
+    color: #174369 !important;
 }
 
 /* NoMatch STYLES */
@@ -25,4 +31,12 @@ h3 {
 
 #topSpacer {
     padding-top: 6%;
+}
+
+#muchXc1te {
+    max-width: 100%;
+}
+
+#NoMatchHero {
+    max-width: 100%;
 }

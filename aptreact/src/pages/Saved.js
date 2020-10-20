@@ -20,7 +20,7 @@ import Boroughd from "../components/Images/boroughd.png";
 import { LoginButton } from "../components/Landing/style";
 
 
-const boroughd = <img src={Boroughd} id="HeaderHero" alt="boroughd"></img>
+const boroughd = <img src={Boroughd} id="HeaderHero" alt="boroughd" style={{ marginLeft: '20%'}}></img>
 
 
 function Saved() {
