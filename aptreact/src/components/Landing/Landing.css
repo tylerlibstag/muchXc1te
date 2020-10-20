@@ -32,3 +32,8 @@ h3 {
     letter-spacing: 3px !important;
     font-family: sans-serif;
 }
+
+#AptHero {
+    max-width: 120%;
+    margin-left: -5%;
+}
