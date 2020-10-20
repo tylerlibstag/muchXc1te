@@ -1,0 +1,23 @@
+.vl {
+    margin: 0;
+    position: absolute;
+    /* top: 50%; */
+    /* -ms-transform: translateY(-50%); */
+    /* transform: translateY(-50%); */
+    /* border-left: 1px solid lightgray; */
+    /* height: 575px; */
+};
+
+button {
+    background: #2B89AD;
+}
+
+.noMatchUser {
+    height: 135px;
+    width: 135px;
+    margin: 0px 0px 35px 0px;
+}
+
+/* .profileNavButtons p {
+    padding: 100px 0px 0px 0px;
+}; */

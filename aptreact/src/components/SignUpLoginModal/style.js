@@ -38,7 +38,9 @@ export const SubmitButton = styled(Button)`
     color: #fff;
     border-radius: 5px;
     padding: 5px 20px;
-    margin: auto;
+    width: 100%;
+    margin-top: 20px;
+    margin-left:150%;
     -webkit-box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12),
         0 11px 15px -7px rgba(0, 0, 0, 0.2);
     box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12),

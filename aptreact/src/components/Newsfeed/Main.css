@@ -5,23 +5,24 @@ html {
   padding: 0;
   border: 0;
   margin: 0;
+
 }
 
 
 .main {
-  height: 100vh;
-  background-color: white;
+  height: 50vh;
   display: grid;
   place-items: center;
-  color: white;
+  
 }
 
 .main_videos {
   position: relative;
-  height: 800px;
-  border-radius: 20px;
+  height: 600px;
   width: 80%;
-  max-width: 500px;
+  /* height: 60%; */
+  border-radius: 20px;
+  max-width: 350px;
   scroll-snap-type: y mandatory;
   overflow: scroll;
 }
@@ -29,16 +30,9 @@ html {
 .main_videos::-webkit-scrollbar {
   display: none;
 }
+
 .main_videos {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-.newsfeed{
-  padding: 0 !important;
-  border: 0 !important;
-  margin: 0 !important;
-  /* display: grid; */
-  /* place-items: left;  */
-  color: black;
-}

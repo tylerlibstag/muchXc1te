@@ -8,10 +8,12 @@ import mongoose from "mongoose";
 import keys from "./config/keys.js";
 import passport from "passport";
 import cors from "cors";
-import twitterPassportSetup from "./config/twitterPassportSetup.js";
-import localPassportSetup from "./config/localUserPassportSetup.js";
+import localPassportSetup from "./passport/localUserPassportSetup.js";
 import session from "express-session";
 import authRoutes from "./routes/auth-routes.js";
+import savedVideosR from "./routes/savedVideo-routes.js"
+
+
 import cookieParser from "cookie-parser";
 const MongoStore = require("connect-mongo")(session);
 
@@ -26,20 +28,12 @@ const { Storage } = require("@google-cloud/storage");
 
 //database dependencies
 import Data from "./seed/data.js";
-import Videos from "./models/dbModel.js";
+import Videos from "./models/videoModel.js";
 
+import data from "./seed/data.js";
+import { createBrotliDecompress } from "zlib";
 
-// /////////////////Variables /////////////////////////////////////
-
-// Variables for Database
-var publicUrl = "";
-const filter = { url: publicUrl };
-
-//instantiate storage client
-const storage = new Storage({
-  keyFilename: "./aptreactstorage-52385ce6c45e.json",
-});
-const bucket = storage.bucket("apt-videos");
+import videoRoutes from "./routes/video-routes.js"
 
 // app config variables
 const app = express();
@@ -100,99 +94,12 @@ app.use((req, res, next) => {
 });
 
 ////////////////// ROUTES ////////////////////////////////
-
-// **********  BEGINNING OF MULTER/GOOGLE POST ROUTE ********* //
-app.post("/upload", multer.single("file"), (req, res, next) => {
-  if (!req.file) {
-    res.status(400).send("No file uploaded.");
-    return;
-  }
-
-  // Create a new blob in the bucket and upload the file data.
-  const blob = bucket.file(req.file.originalname);
-  const blobStream = blob.createWriteStream();
-
-  blobStream.on("error", (err) => {
-    next(err);
-  });
-
-  blobStream.on("finish", () => {
-    // The public URL can be used to directly access the file via HTTP.
-    publicUrl = format(
-      `https://storage.googleapis.com/${bucket.name}/${blob.name}`
-    );
-    res.status(200).send(publicUrl);
-
-    // This is
-    Videos.findOneAndUpdate(
-      { channel: "sssanga" },
-      { url: publicUrl },
-      function (err, result) {
-        if (err) {
-          res.send(err);
-        } else {
-          res.send(result);
-        }
-      }
-    );
-  });
-
-  blobStream.end(req.file.buffer);
-});
-//////////////////////////////////////////
-// app.get("/api/dbModel", (req, res) => {
-//   userCrit.find({})
-//     .then(dbModel => {
-      
-//       res.json(dbModel);
-//     })
-//     .catch(err => {
-//       res.status(400).json(err);
-//     });
-// });
-
-/****************  BEGINNING OF DATABASE TEST POST ROUTE **********/
-app.post("/v2/posts", (req, res) => {
-  // POST request is the add data to the database
-  // it will let us add a video document to the videos collection
-
-  const dbVideos = req.body;
-
-  //publicUrl.findOneAndUpdate(dbVideos);
-
-  Videos.create(dbVideos, (err, data) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.status(201).send(data);
-    }
-  });
-});
-
-// DATABASE GET Routes ***********************************
-// old hello world route, main page entry point. //
-//app.get("/", (req, res) => res.status(200).send("hello world"));
-
 // Route to test form submissions
 app.get("/", (req, res) => {
   res.render("form.pug");
 });
 
-// local seed database route
-app.get("/v1/posts", (req, res) => res.status(200).send(Data));
-
-// mongoose test route.
-app.get("/v2/posts", (req, res) => {
-  // this is to get everything from the database.
-
-  Videos.find((err, data) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.status(200).send(data);
-    }
-  });
-});
+app.use("/api/videoRoute", videoRoutes);
 
 // ********** AUTH ROUTES **********************************
 // set up cors to allow us to accept requests from our client
@@ -205,32 +112,10 @@ app.use(
 );
 
 // set up auth routes
-// twitter
-app.use("/auth", authRoutes);
-
-const authCheck = (req, res, next) => {
-  // console.log(`This is the res for the authCheck in sever.js:${res}`);
-  // console.log(`This is the req for the authCheck in sever.js:${req}`);
-  next();
-};
-
-console.log(authCheck);
-
 // local
 app.use("/api/auth", authRoutes);
+app.use("/api/addSaved", savedVideosR);
 
-// user auth sign-in on home page
-// if user is already logged in, send the profile response,
-// otherwise, send a 401 response that the user is not authenticated
-// authCheck before navigating to home page
-app.get("/Newsfeed", authCheck, (req, res) => {
-  res.status(200).json({
-    authenticated: true,
-    message: "user successfully authenticated",
-    user: req.user,
-    cookies: req.cookies,
-  });
-});
 
 // ********* end of Auth Routes *****************
 

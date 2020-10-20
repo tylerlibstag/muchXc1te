@@ -12,6 +12,10 @@ h3 {
     font-size: larger !important;
 }
 
+a {
+    color: aliceblue !important;
+}
+
 /* Newsfeed STYLES */
 
 .container-fluid{
@@ -50,5 +54,18 @@ h3 {
     margin: 0;
     /* display: grid; */
     /* place-items: left;  */
-    color: white;
+    /* color: white; */
+}
+
+#Hero {
+    padding-top: 3%;
+    max-width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#topSpacer {
+    padding-top: 6%;
 }

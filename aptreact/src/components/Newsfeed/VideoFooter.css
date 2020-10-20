@@ -4,6 +4,7 @@
   bottom: 150px;
   margin-left: 40px;
   display: flex;
+  font-weight: bold !important;
 }
 
 .videoFooter_text {
@@ -24,25 +25,27 @@
 
 .videoFooter_ticker > .ticker {
   height: fit-content;
-  margin-left: 30px;
-  width: 60%;
+  margin-left: 20px;
+  width: 70%;
+  white-space: nowrap;
+
 }
 
 .videoFooter_ticker h1 {
   padding-top: 7px;
 }
 
-.videoFooter_record {
-  animation: spinTheRecord infinite 5s linear;
+.expandIcon {
+  /* animation: spinTheRecord infinite 5s linear; */
   height: 50px;
-  filter: invert(1);
+  /* filter: invert(1); */
   position: absolute;
-  bottom: 0;
-  right: 20px;
+  bottom: 20px;
+  right: 10px;
 }
 
-@keyframes spinTheRecord {
+/* @keyframes spinTheRecord {
   from {
     transform: rotate(360deg);
   }
-}
+} */

@@ -8,7 +8,7 @@ const aptReactSchema = mongoose.Schema({
   address2: String,
   city: String,
   state: String,
-  zipcode: Number,
+  zipcode: Number ,
   bedrooms: Number,
   bathrooms: Number,
   sqrfeet: Number,

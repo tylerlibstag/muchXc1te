@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Modal, Form, Col, Row } from "react-bootstrap";
 import axios from "axios";
 import DelegatedAuthList from "../DelegatedAuthList/DelegatedAuthList";
-import SignUpHero from "../Images/SignUpHero.png";
+import { Redirect, Link} from "react-router-dom";
 import "../Images/imageStyle.css";
+
+
 
 import {
     PaddedContainer,
@@ -18,27 +20,35 @@ import {
 const SignUpLoginForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     const onSubmit = e => {
         e.preventDefault();
 
         const userData = {
             email,
-            password
+            password,
+            isAuthenticated
         };
+
         axios
             .post("/api/auth/register_login", userData)
             .then(res => {
                 console.log(res);
+                setIsAuthenticated(true);
+                
             })
             .catch(err => {
                 console.log(err);
                 console.log(err.response);
             });
-    };
+
+            return <Redirect to='/Newsfeed' />;
+    }
+
 
     return (
-            <Form onSubmit={onSubmit}>
+        <Form onSubmit={onSubmit}>
             <Form.Group controlId="formBasicEmail">
                 <Row>
                     <Form.Label column xs="2" sm="1">
@@ -50,16 +60,13 @@ const SignUpLoginForm = () => {
                             placeholder="Enter email"
                             onChange={e => {
                                 setEmail(e.target.value);
-                                console.log(email);
+                                // console.log(email);
                             }}
                             required
                         />
-                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                        <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
                     </Col>
                 </Row>
             </Form.Group>
-
             <Form.Group controlId="formBasicPassword">
                 <Row>
                     <Form.Label column xs="2" sm="1">
@@ -71,27 +78,11 @@ const SignUpLoginForm = () => {
                             placeholder="Password"
                             onChange={e => setPassword(e.target.value)}
                         />
-                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                    </Col>
-                </Row>
-            </Form.Group>
-            <Form.Group controlId="formBasicCheckbox">
-                <Row>
-                    <Col xs="2" sm="1">
-                        <Form.Check type="checkbox" />
-                    </Col>
-                    <Col xs="10" sm="11">
-                        <Form.Label>
-                            <MutedSpan>
-                                I hereby confirm that the referral app is allowed to send me emails, up until I
-                                unsubscribe.
-                            </MutedSpan>
-                        </Form.Label>
                     </Col>
                 </Row>
             </Form.Group>
             <VerticalCenterWrapper>
-                <SubmitButton type="submit">Submit</SubmitButton>
+                <Link to="/Newsfeed"><SubmitButton type="submit"> Submit</SubmitButton></Link>
             </VerticalCenterWrapper>
         </Form>
     );
@@ -99,14 +90,9 @@ const SignUpLoginForm = () => {
 
 const SignupLoginModal = props => {
     return (
-        <Modal style={{opacity:1}} show={props.show} onHide={() => props.setShow(false)}>
+        <Modal style={{ opacity: 1 }} show={props.show} onHide={() => props.setShow(false)}>
             <Modal.Header closeButton>
-                <Modal.Title>Sign up / Login
-                    <div className= "container">
-                    <img src={SignUpHero} id="SignUpHero" alt="A skater, a dog walker in heels, and two phone users walking out of a large phone." />
-                    </div>
-                </Modal.Title>
-                
+                <Modal.Title>Sign up / Login</Modal.Title>
             </Modal.Header>
             <PaddedContainer>
                 <ResponsiveHeader4>With email:</ResponsiveHeader4>

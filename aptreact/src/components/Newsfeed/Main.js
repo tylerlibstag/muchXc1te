@@ -8,7 +8,7 @@ function Main() {
 
   useEffect(() => {
     async function fetchPosts() {
-      const response = await axios.get("/v2/posts");
+      const response = await axios.get("api/videoRoute/v2/posts");
       setVideos(response.data);
 
       return response;
@@ -17,20 +17,19 @@ function Main() {
     fetchPosts();
   }, []);
 
-  
+
   console.log(videos);
 
   return (
-    //BEM naming convention
     <div className="main">
       <div className="main_videos">
         {videos.map(
-          ({ url, channel, description, apt, likes, messages, shares }) => (
+          ({ url, screenName, description, address1, likes, messages, shares }) => (
             <Video
               url={url}
-              channel={channel}
+              screenName={screenName}
               description={description}
-              apt={apt}
+              address1={address1}
               likes={likes}
               messages={messages}
               shares={shares}
@@ -38,6 +37,7 @@ function Main() {
           )
         )}
       </div>
+
     </div>
   );
 }
