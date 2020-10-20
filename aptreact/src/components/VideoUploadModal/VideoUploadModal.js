@@ -39,6 +39,24 @@ function VideoUploadForm() {
         const data = new FormData();
         data.append("file", file);
         data.append("screenName", screenName);
+        data.append("description", description);
+        data.append("address1", address1);
+        data.append("address2", address2);
+        data.append("city", city);
+        data.append("state", state);
+        data.append("zip", zip);
+        data.append("bedrooms", bedrooms);
+        data.append("bathrooms", bathrooms);
+        data.append("sqrfeet", sqrfeet);
+        data.append("view", view);
+        data.append("nearpark", nearpark);
+        data.append("neartransportation", neartransportation);
+        data.append("neargrocery", neargrocery);
+
+
+
+
+        
 
         Axios.post("http://localhost:9000/api/videoroute/upload3", data)
             .then(res => console.log(res))
@@ -70,6 +88,17 @@ function VideoUploadForm() {
                             onChange={event => {
                                 const file = event.target.files[0];
                                 setFile(file);
+                            }}
+                        />
+                    </div>
+                    <div className="flex">
+                        <label htmlFor="description">Description </label>
+                        <input
+                            type="textarea"
+                            id="description"
+                            onChange={event => {
+                                const { value } = event.target;
+                                setDescription(value);
                             }}
                         />
                     </div>

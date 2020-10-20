@@ -16,9 +16,19 @@ import {
 } from "./style";
 
 
-function Vid( {url} ) {
+function Vid() {
     const [videos, setVideos] = useState([]);
-    console.log(url);
+
+    useEffect(() => {
+        async function fetchPosts() {
+          const response = await axios.get("api/videoRoute/v2/posts");
+          setVideos(response.data);
+    
+          return response;
+        }
+    
+        fetchPosts();
+      }, []);
 
     return (
         <div className="bigMain">
