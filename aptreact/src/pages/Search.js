@@ -48,9 +48,6 @@ function Search(props) {
     }
  
 
-
-
-
     var handleTyping = (e) => {
         setSearch({
             ...userSearch, search: e.target.value
@@ -59,7 +56,13 @@ function Search(props) {
     // this takes the value of what the user put when they click, then compares it to the data from the database
     var handleClick = () => {
         console.log('we r sedning this to backend', userSearch)
-        axios.get(`http://localhost:9000/api/videoRoute/v2/posts/${userSearch.category}/` + userSearch.search).then((data) => {
+        // axios.get(`http://localhost:9000/api/videoRoute/v2/posts/${userSearch.category}/` + userSearch.search).then((data) => {
+        //     console.log('dataaaa', data.data)
+        //     setSearch({ ...userSearch, results: data.data });
+
+        // })
+
+        axios.get(`api/videoRoute/v2/posts/${userSearch.category}/` + userSearch.search).then((data) => {
             console.log('dataaaa', data.data)
             setSearch({ ...userSearch, results: data.data });
 
@@ -97,7 +100,7 @@ function Search(props) {
 
         }
         async function fetchBool( nearTransportation) {
-            const response = await axios.get(`http://localhost:9000/api/videoRoute/v2/posts/${nearTransportation}/`);
+            const response = await axios.get(`api/videoRoute/v2/posts/${nearTransportation}/`);
             setSearch({ ...userSearch, results: response.data });
             console.log("view", response);
             
@@ -135,7 +138,7 @@ function Search(props) {
 
         //this gets the city from the database 
         async function fetchCity(state, city) {
-            let res = await axios.get(`http://localhost:9000/api/videoRoute/v5/posts/${state}/${city}`);
+            let res = await axios.get(`api/videoRoute/v5/posts/${state}/${city}`);
             console.log("res", res.data)
             setPopulate(res.data);
         }

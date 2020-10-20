@@ -3,7 +3,6 @@ import { Modal, Form, Col, Row } from "react-bootstrap";
 import "./VideoUploadModal.css";
 import instance from "../../utils/axios.js";
 
-
 import {
     PaddedContainer,
     EmailSymbol,
@@ -58,6 +57,12 @@ function VideoUploadForm() {
 
         
 
+
+        // Axios.post("http://localhost:9000/api/videoroute/upload3", data)
+        //     .then(res => console.log(res))
+        //     .catch(err => console.log(err));
+
+   
         instance.post("api/videoroute/upload3", data)
             .then(res => console.log(res))
             .catch(err => console.log(err));

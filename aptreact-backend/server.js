@@ -105,7 +105,7 @@ app.use("/api/videoRoute", videoRoutes);
 // set up cors to allow us to accept requests from our client
 app.use(
   cors({
-    origin: "http://localhost:3000", // allow to server to accept request from different origin
+    origin: "https://aptreact.web.app", // allow to server to accept request from different origin
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true, // allow session cookie from browser to pass through
   })
@@ -120,4 +120,4 @@ app.use("/api/addSaved", savedVideosR);
 // ********* end of Auth Routes *****************
 
 // listen
-app.listen(port, () => console.log(`listening on localhost: ${port}`));
+app.listen(port, () => console.log(`listening on: ${port}`));

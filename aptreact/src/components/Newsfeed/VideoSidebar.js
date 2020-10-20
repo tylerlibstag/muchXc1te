@@ -1,6 +1,6 @@
 // you can also use [state, setState] = React.useState({joke: "",});
 import React, { useState } from "react";
-
+import axios from "../../utils/axios";
 import "./VideoSidebar.css";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import MessageIcon from "@material-ui/icons/Message";
@@ -9,7 +9,7 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import SaveIcon from '@material-ui/icons/Save';
 //import { ThemeContextConsumer } from "../../utils/UserContextProvider";
 import MyContext from '../../utils/Context'
-import axios from 'axios'
+// import axios from 'axios'
 
 
 
@@ -23,14 +23,11 @@ function VideoSidebar({ url, likes, shares, messages, save, screenName }) {
 
 
 
-
-
-
   var handleClick = (url) => {
 
-
     console.log('this is the url for the vid u wanna save!!!', screenName)
-    axios.post(`http://localhost:9000/api/addSaved/v1/vid/`, { url: url })
+    // axios.post(`http://localhost:9000/api/addSaved/v1/vid/`, { url: url })
+    axios.post(`api/addSaved/v1/vid/`, { url: url })
   }
   //,{screenName: screenName}
 
