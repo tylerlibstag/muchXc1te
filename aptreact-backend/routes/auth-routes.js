@@ -1,7 +1,6 @@
 import express from "express";
 const router = express.Router();
 import passport from "passport";
-import isAuthenticated from "../middleware/isAuthenticated.js";
 import LocalUser from "../models/localUserModel.js";
 import bodyParser from "body-parser";
 router.use(bodyParser.json());
@@ -27,40 +26,11 @@ router.post("/register_login", (req, res, next) => {
 });
 
 
-
 router.get("/users/:id", (req, res) => {
   const id = req.params.id;
   LocalUser.findOne({ where: { id: id } })
       .then(data => res.json(data))
-})
-
-
-// middleware isn't working
-// router.get("/api/users", isAuthenticated, (req, res) => {
-//   LocalUser.findAll({}).then(data => {
-//     res.json(data);
-//   });
-// });
-
-// router.post(("/addSaved"), (req, res) => {
-//   console.log('time to save~!!!', req.body)
-//   const savedVideos = req.body;
-  
-//   LocalUser.create(   
-//       { url: savedVideos.url}, 
-
-//       function (err, result) {
-//           if (err) {
-//               res.send(err);
-//           } else {
-//               res.send(result);
-//           }
-//       }
-//   );
-  
-
-  // save to DB!!!!! look  up how to push something to array on LocalUser $push
-// });
+});
 
 
 // get all users in DB
