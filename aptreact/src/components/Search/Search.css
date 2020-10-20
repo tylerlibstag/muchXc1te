@@ -54,19 +54,19 @@ h3 {
 } */
 
 .checkboxCol label {
-    padding: 25px 5px 10px 2px;
-    font-weight: 325;
+    padding: 45px 85px 10px 85px;
+    font-weight: 340;
     font-size: medium;
   }
 
-.checkboxCol2 label {
+/* .checkboxCol2 label {
     padding: 25px 0px 10px 15px;
     font-weight: 325;
     font-size: medium;
-}
+} */
 
 .main_videos2 {
-    margin: 70px 0px 0px 200px;
+    margin: 70px 0px 0px 0px;
     position: relative;
     height: 600px;
     width: 80%;
@@ -75,19 +75,57 @@ h3 {
     max-width: 350px;
     scroll-snap-type: y mandatory;
     overflow: scroll;
-  }
+}
   
-  .main_videos2::-webkit-scrollbar {
+.main_videos2::-webkit-scrollbar {
     display: none;
-  }
+}
   
-  .main_videos2 {
+.main_videos2 {
     -ms-overflow-style: none;
     scrollbar-width: none;
-  }
+}
 
-  .profileCol2 {
+.profileCol2 {
     margin: auto;
     text-align: center;
     padding: 0px 15px 250px 0px;
-  };
+};
+
+/* .dropdown {
+    padding: 0px 0px 0px 300px;
+} */
+
+.dropdownRow1 {
+    padding: 10px 0px 10px 0px;
+}
+.selectForm {
+    margin: auto;
+    width: 50%;
+    padding: 10px 95px 10px 0px;
+    font-weight: 245;
+}
+
+.dropdownRow3 {
+    margin: auto;
+    width: 50%;
+    /* padding: 10px; */
+    padding: 8px 95px 10px 0px;
+}
+.dropdownRow3 button {
+    background-color: #1E607A;
+    color: white;
+    font-weight: 240;
+}
+
+.dropdownRow3 button:hover {
+    background-color: #468ea8;
+    color: white;
+    font-weight: 400;
+    box-shadow: 0px 10px 15px #78a9bd;
+    transform: translateY(-1px);
+}
+
+.dropdownRow3 select {
+    font-weight: 325;
+}
