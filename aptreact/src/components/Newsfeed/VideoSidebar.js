@@ -20,6 +20,30 @@ function VideoSidebar({ url, likes, shares, messages, save, screenName }) {
     results: []
 });
 
+  return (
+    <div className="videoSidebar">
+      <div className="videoSidebar_button">
+        {liked ? (
+          <FavoriteIcon fontSize="large" onClick={(e) => setLiked(false)} />
+        ) : (
+            <FavoriteBorderIcon
+              fontSize="large"
+              onClick={(e) => setLiked(true)}
+            />
+          )}
+
+        <p>{liked ? likes + 1 : likes}</p>
+      </div>
+      <div className="videoSidebar_button">
+        {/* <SaveIcon fontSize="large" onClick={} /> */}
+        <p>{saved}</p>
+      </div>
+
+      <div className="videoSidebar_button">
+        <SaveIcon fontSize="large" />
+        <p>{messages}</p>
+      </div>
+
 
 
 
@@ -63,6 +87,11 @@ console.log('my conteext!!', MyContext)
             <p>{shares}</p>
           </div>
       </div>
+
+    </div>
+  )};
+  
+
     
 
       )

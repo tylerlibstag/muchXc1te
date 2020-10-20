@@ -41,6 +41,7 @@ passport.use(
                         if (err) throw err;
 
                         if (isMatch) {
+                            console.log("a returning user is logging in")
                             return done(null, user);
                         } else {
                             return done(null, false, { message: "Wrong password" });

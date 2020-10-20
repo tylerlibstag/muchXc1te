@@ -1,138 +1,110 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Modal, Form, Col, Row } from "react-bootstrap";
 import axios from "axios";
-import { Route, Switch, Redirect } from "react-router-dom";
 import DelegatedAuthList from "../DelegatedAuthList/DelegatedAuthList";
+import { Redirect, Link} from "react-router-dom";
 import "../Images/imageStyle.css";
-import "./style.js";
-import "./style.css";
+
+
 
 import {
     PaddedContainer,
     EmailSymbol,
     PasswordSymbol,
     ResponsiveHeader4,
+    MutedSpan,
     VerticalCenterWrapper,
     SubmitButton as SubmitButton
 } from "./style";
 
 const SignUpLoginForm = () => {
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    const userData = {
-        email: email,
-        password: password,
-        isAuthenticated: isAuthenticated
-    };
+    const onSubmit = e => {
+        e.preventDefault();
 
-     // login/sign up a user
-     axios
-     .post("/api/auth/register_login", userData)
-     .then(res => {
-         console.log(res);
-     })
-     .catch(err => {
-         console.log(err);
-         console.log(err.response);
-     });
+        const userData = {
+            email,
+            password,
+            isAuthenticated
+        };
 
- // get user data and log them in
- axios
-     .get("/api/auth/users", userData)
-     .then(res => {
-         console.log(res);
-     })
-     .catch(err => {
-         console.log(err);
-         console.log(err.response);
-     });
-
-    const handleSubmit = event => {
-        event.preventDefault();
-
-    };
-
-
-    useEffect(() => {
-        axios.get("/api/auth/register_login", userData)
-            .then((res) => {
-                setIsAuthenticated(res.data.success);
+        axios
+            .post("/api/auth/register_login", userData)
+            .then(res => {
+                console.log(res);
+                setIsAuthenticated(true);
+                
             })
-            .catch((res) => {
-                    console.log("user is not authenticated");
-                    console.log("=========================")
-                    console.log(res)
-                setIsAuthenticated(false);
+            .catch(err => {
+                console.log(err);
+                console.log(err.response);
             });
-    }, []);
 
+            return <Redirect to='/Newsfeed' />;
+    }
 
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <div className="flex" id="inputStyleEmail">
-                    <label htmlFor="email">
+        <Form onSubmit={onSubmit}>
+            <Form.Group controlId="formBasicEmail">
+                <Row>
+                    <Form.Label column xs="2" sm="1">
                         <EmailSymbol />
-                    </label>
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Enter email"
-                        onChange={e => {
-                            setEmail(e.target.value);
-                            // console.log(email);
-                        }}
-                        required
-                    />
-                </div>
-                <div className="flex" id="inputStylePassword">
-                    <label htmlFor="password">
+                    </Form.Label>
+                    <Col xs="10" sm="11">
+                        <Form.Control
+                            type="email"
+                            placeholder="Enter email"
+                            onChange={e => {
+                                setEmail(e.target.value);
+                                // console.log(email);
+                            }}
+                            required
+                        />
+                    </Col>
+                </Row>
+            </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+                <Row>
+                    <Form.Label column xs="2" sm="1">
                         <PasswordSymbol />
-                    </label>
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        onChange={e => {
-                            setPassword(e.target.value)
-                        }}
-                    />
-                </div>
-            </form>
-            {/* Once the User presses submit, checkAuth() should run and then User 
-                should be redirect to Newsfeed page */}
-            <SubmitButton type="submit">Submit</SubmitButton>
-        </div>
-    )
-
+                    </Form.Label>
+                    <Col xs="10" sm="11">
+                        <Form.Control
+                            type="password"
+                            placeholder="Password"
+                            onChange={e => setPassword(e.target.value)}
+                        />
+                    </Col>
+                </Row>
+            </Form.Group>
+            <VerticalCenterWrapper>
+                <Link to="/Newsfeed"><SubmitButton type="submit"> Submit</SubmitButton></Link>
+            </VerticalCenterWrapper>
+        </Form>
+    );
 };
 
 const SignupLoginModal = props => {
     return (
         <Modal style={{ opacity: 1 }} show={props.show} onHide={() => props.setShow(false)}>
             <Modal.Header closeButton>
-                <Modal.Title>Sign up / Login
-                                    <div className="container">
-                    </div>
-                </Modal.Title>
+                <Modal.Title>Sign up / Login</Modal.Title>
             </Modal.Header>
             <PaddedContainer>
                 <ResponsiveHeader4>With email:</ResponsiveHeader4>
                 <br />
                 <SignUpLoginForm />
-                <Row style={{ marginTop: "20px", borderBottom: "1px solid #dee2e6" }} />
+                <Row style={{ borderBottom: "1px solid #dee2e6" }} />
                 <ResponsiveHeader4>Or with your favorite third party provider:</ResponsiveHeader4>
                 <br />
                 <DelegatedAuthList />
             </PaddedContainer>
         </Modal>
-
     );
 };
 
 export default SignupLoginModal;
-
