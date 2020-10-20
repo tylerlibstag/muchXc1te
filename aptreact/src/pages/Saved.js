@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import "../components/Newsfeed/Newsfeed.css";
 import "bootstrap/dist/css/bootstrap.css";
-import Main from "../components/Newsfeed/Main";
 import SideNav from "../components/Navs/SideNav";
 import ProfileNav from "../components/Navs/ProfileNav"
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "../../src/index.css";
-import Footer from "../components/Footer/Footer";
 import Video from "../components/Newsfeed/Video"
 
 import Axios from "axios";

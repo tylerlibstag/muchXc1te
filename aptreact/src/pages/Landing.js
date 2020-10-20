@@ -11,6 +11,7 @@ import Boroughd from "../components/Images/boroughd.png";
 import AptHero from "../components/Images/AptHero.png";
 import banner1 from "../components/Images/banner1.png";
 import SignUpHero from "../components/Images/SignUpHero.png";
+import userDriver from "../components/Images/userDriver.png";
 
 // Login Imports
 import SignUpLoginModal from "../components/SignUpLoginModal/SignUpLoginModal";
@@ -62,11 +63,13 @@ function Landing () {
 
             <div className="container" id="Hero" style={{ backgroundImage: `url(${banner1})`}}>
                 <div className="row">
-                        <div className="col-md-5 my-auto" id="HeaderText">
-                            <h2>A community-driven solution to finding your next home.</h2>
+                        
+                        <div className="col-md-6 text-center my-auto">
+                            <img src={userDriver} id="HeaderHero"/>
                         </div>
-                        <div className="col-md-7 text-center my-auto">
-                            <img src={HeaderHero} id="HeaderHero"/>
+                        <div className="col-md-6 my-auto" id="HeaderText2">
+                            <p>Experts recommend offsetting the hinderances of apartment hunting during Covid-19 by asking friends for insights, preparing to rent site-unseen, and utilizing virtual tours. Current online real estate & rental platforms haven't caught up fast enough with these needs.</p><br/>
+                            <p> Boroughed offers a centralized solution that addresses all three: a user-driven experience to finding your perfect home during unprecedented times.</p>
                         </div>
                 </div>
             </div>
@@ -79,7 +82,9 @@ function Landing () {
                         <h2>We'll help you find a space that has everything you need to live the way you want.</h2>
                     </div>
             </div>
-
+            <div>
+                <Footer/>
+            </div>
         </div>
     )
 }
