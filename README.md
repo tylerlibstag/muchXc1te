@@ -6,7 +6,7 @@
 ## Description
 A React-based socially-driven, real estate marketplace and rental listings app for uploading, searching and favoriting crowd-sourced walkthrough videos.
 
-Deployed app via Heroku: https://aptreact-backend.herokuapp.com/.
+Deployed app via Heroku: https://aptreact.web.app.
 
 ## Authors & Acknowledgement
 
